@@ -1,0 +1,23 @@
+{
+  "name": "waypoint",
+  "version": "1.0.0",
+  "description": "Repo for our group project for ITSC-4155 named Waypoint, a News/social media web app for those interested in video games and sports.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TrevorLindberg73/Waypoint.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TrevorLindberg73/Waypoint/issues"
+  },
+  "homepage": "https://github.com/TrevorLindberg73/Waypoint#readme",
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.2"
+  }
+}
