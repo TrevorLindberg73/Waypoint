@@ -140,7 +140,7 @@ input[type="password"]:focus {
   outline: none;
 }
 
-.login-button {
+.login-button , .register-button{
   width: 100%;
   padding: 10px;
   background-color: #DDD0C8;
@@ -152,7 +152,7 @@ input[type="password"]:focus {
   font-weight: 600;
 }
 
-.login-button:hover {
+.login-button:hover, .register-button:hover {
   background-color: orange;
 }
 .separator {
