@@ -8,12 +8,17 @@
 }
 body{
     background-color: #737373;
+    color: #000000;
 }
 
 /*Navigation*/
 nav{
-    height:150px;
-    background-image: url('/images/waypoint-navbar.jpeg');
+  height:150px;
+  background-image: url('/images/waypoint-navbar.jpeg');
+}
+
+.nav-bar a{
+  text-decoration: none;
 }
 
 nav img {
@@ -59,6 +64,27 @@ nav ul li a:hover:before{
 }
 /*Navigation Ends*/
 
+/* Main Content */
+.row{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card{
+  width: 300px;
+  height: 400px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.card img{
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+}
+
   
 /* footer */
 footer {
@@ -74,7 +100,6 @@ footer p {
   color: white;
 }
 .footer-at-bottom{
-    position: fixed;
     width:100%;
     bottom: 0;
 }
