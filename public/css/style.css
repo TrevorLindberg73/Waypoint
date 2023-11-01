@@ -207,3 +207,19 @@ input[type="password"]:focus {
 .registration-link:hover {
   background-color: orange;
 }
+
+.article-container {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  background:  #ECE4DF;
+  border-radius: 5px;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}

@@ -2,6 +2,7 @@
 const express = require('express');
 const ejs = require('ejs');
 const userRoutes = require('./routes/userRoutes');
+const newsRoutes = require('./routes/newsRoutes');
 
 // Create App
 const app = express();
@@ -21,6 +22,7 @@ app.get('/', (req,res) =>{
     res.render('index');
 })
 app.use('/users', userRoutes);
+app.use('/articles', newsRoutes);
 
 // app.get('/login', (req,res) =>{
 //     res.render('login');
