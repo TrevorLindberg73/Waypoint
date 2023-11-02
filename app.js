@@ -20,7 +20,7 @@ app.use(express.static('public'));
 app.get('/', (req,res) =>{
     res.render('index');
 })
-app.use('/users', userRoutes);
+app.use('/user', userRoutes);
 
 // app.get('/login', (req,res) =>{
 //     res.render('login');
