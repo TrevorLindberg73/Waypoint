@@ -6,12 +6,17 @@ const router = express.Router();
 
 router.get('/', controller.index);
 
-router.get('/:id', controller.showDetailed);
+
 
 //New Post
+router.get('/new', controller.create);
 
 //Detailed Post
+router.get('/:id', controller.showDetailed);
 
 //Delete Post
+router.get('/:id', controller.delete)
+
+router.get('/:id/edit', controller.update);
 
 module.exports = router;
