@@ -1,0 +1,135 @@
+.container {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(223, 223, 223);
+    min-height: 500px;
+    gap: 30px;
+    box-shadow: 0px 0px 0px;
+}
+
+.left-container,
+.right-container {
+    width: 25%;
+    background-color: white !important;
+    border-radius: 10px;
+    height:min-content;
+}
+
+.left-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.middle-container {
+    width: 75%;
+    background-color: white;
+    border-radius: 10px;
+    background-color: rgb(223, 223, 223);
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+
+body {
+    background-color: rgb(223, 223, 223);
+}
+
+.profile-picture {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.bio-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(to top,
+            white 0%,
+            white 70%,
+            orangered 70%,
+            orangered 100%);
+    border-bottom: 2px solid grey;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.bio-container .profile-picture {
+    border: 5px solid white;
+}
+
+.bio-container p {
+    text-align: center;
+}
+
+.likes-container {
+    border-bottom: 2px solid grey;
+}
+
+.recent-post a{
+    color: orangered;
+}
+
+/* Main Post */
+.post-container{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.post-container .top-bar{
+    display: flex;
+    gap:20px;
+    align-items: center;
+}
+
+.post-container .post-stats{
+    display: flex;
+    justify-content: space-between;
+}
+
+.post-stats .left{
+    display: flex;
+    gap:10px;
+}
+
+.right-container .post img{
+    width:40px;
+    height:40px;
+    border-radius: 50%;
+}
+
+.right-container .top-bar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.right-container .top-bar p{
+    margin-bottom: 0px !important;
+}
+
+.right-container .post{
+    margin:5px;
+}
+
+.right-container .post{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+
+.right-container .post-stats{
+    display: flex;
+    gap:10px;
+}
+
+.right-container .post-stats img{
+    height:25px;
+    width: 25px;
+}

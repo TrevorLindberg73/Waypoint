@@ -3,6 +3,7 @@ const express = require('express');
 const ejs = require('ejs');
 const userRoutes = require('./routes/userRoutes');
 const newsRoutes = require('./routes/newsRoutes');
+const socialRoutes = require('./routes/socialRoutes');
 
 // Create App
 const app = express();
@@ -23,6 +24,7 @@ app.get('/', (req,res) =>{
 })
 app.use('/users', userRoutes);
 app.use('/articles', newsRoutes);
+app.use('/socialmedia', socialRoutes);
 
 // app.get('/login', (req,res) =>{
 //     res.render('login');
