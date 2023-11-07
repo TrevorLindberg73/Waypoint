@@ -133,3 +133,8 @@ body {
     height:25px;
     width: 25px;
 }
+
+img.comment, img.heart{
+    height:25px;
+    width: 25px;
+}
