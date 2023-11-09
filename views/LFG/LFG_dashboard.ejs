@@ -1,5 +1,45 @@
 <% let pageTitle="LFG Dashboard" ; %>
-<%- include('./partials/header.ejs', { pageTitle: pageTitle }) %>
-<p>Test</p>
+<%- include('../partials/header.ejs', { pageTitle: pageTitle }) %>
+    <link rel="stylesheet" type="text/css" href="/css/lfg/style.css">
+<body>
+        <div class="container">
+            <h1>Looking For Group Dashboard</h1>
+            <div class="header">
+            <a href="/lfg/createGroup">Create Group</a>
+            </div>
+        
+            <table>
+                <tr>
+                    <th>Group Name</th>
+                    <th>Group Description</th>
+                    <th>Number of Groups</th>
+                    <th>View Group</th>
+                </tr>
 
-<%- include('./partials/footer.ejs')%>
+                <!-- Each Group -->
+                <tr>
+                    <td>Pick-Up Basketball</td>
+                    <td>Looking for a 3 v 3 pick-up game near concord</td>
+                    <td>3 / 6</td>
+                    <td><a href="/lfg/viewGroup">View</a></td>
+                </tr>
+
+                <!-- Each Group -->
+                <tr>
+                    <td>Group 2</td>
+                    <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</td>
+                    <td>1 / 5</td>
+                    <td><a href="/lfg/viewGroup">View</a></td>
+                </tr>
+
+                <!-- Each Group -->
+                <tr>
+                    <td>Group 3</td>
+                    <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</td>
+                    <td>1 / 10</td>
+                    <td><a href="/lfg/viewGroup">View</a></td>
+                </tr>    
+            </table>
+        </div>
+</body>
+<%- include('../partials/footer.ejs')%>
