@@ -1,5 +1,29 @@
 <% let pageTitle="View Group Details" ; %>
 <%- include('../partials/header.ejs', { pageTitle: pageTitle }) %>
-<p>View Group Detail</p>
+<link rel="stylesheet" type="text/css" href="/css/lfg/style.css">
+<div class = "viewGroupContainer">
+    <div class="group-details">
+        <div class="title-buttons">
+            <h1 class="group-title">Pick-Up Basketball</h1>
+                <div class="group-buttons">
+                    <button class="edit-button" type = "submit" formmethod="GET" formaction = "/"><i class="fas fa-edit"></i></button>
+                    <button class="delete-button" type = "submit" formmethod="POST" formaction = "/" ><i class="fas fa-trash"></i></button>
+                </div>
+        </div>
+
+        <div class="details">
+            <p><strong>Group Category:</strong> Sports </p>
+            <p><strong>Created By:</strong> John Doe</p>
+            <p><strong>Description:</strong> Looking for a 3 v 3 pick-up game near concord </p>
+            <p><strong>Group Size:</strong> 3 / 6 </p><br>
+            <p><strong>Preferences: </strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+        </div>
+    </div>
+
+    <div class="links">
+        <a href="/lfg">Back To LFG Dashboard</a>
+        <a href="/lfg">Join Group</a>
+    </div>
+</div>
 
 <%- include('../partials/footer.ejs')%>
