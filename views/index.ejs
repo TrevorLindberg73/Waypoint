@@ -2,51 +2,55 @@
 <%- include('./partials/header.ejs', { pageTitle: pageTitle }) %>
 
 <div class="container">
-    <div class="row">
-        <div class="col-md-3">
-            <div class="card mx-auto">
-                <img src="/images/derrickLewis.jpg" class="card-img-top" alt="coverPic">
-                <div class="card-body">
-                    <h5 class="card-title">UFC's Derrick Lewis arrested</h5>
-                    <p class="card-text">Days before his Fight Night main event, Derrick Lewis has been arrested for reckless driving.</p>
-                    <a href="articles/ufcarticle" class="btn btn-primary">Read More</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card mx-auto">
-                <img src="/images/raiders.jpg" class="card-img-top" alt="coverPic">
-                <div class="card-body">
-                    <h5 class="card-title">Raiders fire head coach and general manager</h5>
-                    <p class="card-text">Head coach Josh McDaniels and general manager David Ziegler have been fired after horrible season.</p>
-                    <a href="#" class="btn btn-primary">Read More</a>
-                </div>
-            </div>
+
+    <div class="filter-section">
+        <div class="filter-bar">
+            <input type="text" id="filterInput" placeholder="Search by keyword">
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-md-3">
-            <div class="card mx-auto">
-                <img src="/images/spiderman.jpg" class="card-img-top" alt="coverPic">
-                <div class="card-body">
-                    <h5 class="card-title">Spider-Man 2 is Playstation's Fastest-Selling Game</h5>
-                    <p class="card-text">Spider-Man 2 is now Playstation's fastest-selling game after a few days.</p>
-                    <a href="#" class="btn btn-primary">Read More</a>
-                </div>
+    <div class="row row-cols-1 row-cols-md-2 g-1">
+        <div class="col-md-6">
+          <div class="card h-100 w-50">
+            <img src="/images/derrickLewis.jpg" class="card-img-top" alt="coverPic">
+            <div class="card-body">
+              <h5 class="card-title">UFC's Derrick Lewis arrested</h5>
+              <p class="card-text">Days before his Fight Night main event, Derrick Lewis has been arrested for reckless driving.</p>
+              <a href="articles/ufcarticle" class="btn btn-primary">Read More</a>
             </div>
+          </div>
         </div>
-        <div class="col-md-3">
-            <div class="card mx-auto">
-                <img src="/images/mw3.jpg" class="card-img-top" alt="coverPic">
-                <div class="card-body">
-                    <h5 class="card-title">Modern Warefare III PC Specs</h5>
-                    <p class="card-text">If you are curious that you need to upgrade before the game comes out, we've got you.</p>
-                    <a href="#" class="btn btn-primary">Read More</a>
-                </div>
+        <div class="col-md-6">
+          <div class="card h-100 w-50">
+            <img src="/images/raiders.jpg" class="card-img-top" alt="coverPic">
+            <div class="card-body">
+              <h5 class="card-title">Raiders fire head coach and general manager</h5>
+              <p class="card-text">Head coach Josh McDaniels and general manager David Ziegler have been fired after horrible season.</p>
+              <a href="articles/ufcarticle" class="btn btn-primary">Read More</a>
             </div>
+          </div>
         </div>
-    </div>
+        <div class="col-md-6">
+          <div class="card h-100 w-50">
+            <img src="/images/spiderman.jpg" class="card-img-top" alt="coverPic">
+            <div class="card-body">
+              <h5 class="card-title">Spider-Man 2 is Playstation's Fastest-Selling Game</h5>
+              <p class="card-text">Spider-Man 2 is now Playstation's fastest-selling game after a few days.</p>
+              <a href="articles/ufcarticle" class="btn btn-primary">Read More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card h-100 w-50">
+            <img src="/images/mw3.jpg" class="card-img-top" alt="coverPic">
+            <div class="card-body">
+              <h5 class="card-title">Modern Warefare III PC Specs</h5>
+              <p class="card-text">If you are curious that you need to upgrade before the game comes out, we've got you.</p>
+              <a href="articles/ufcarticle" class="btn btn-primary">Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
 </div>
 
 <!-- <h4>Home Page</h4> -->
