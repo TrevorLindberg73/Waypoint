@@ -17,7 +17,7 @@ router.post('/', controller.create);
 router.get('/:id', controller.showDetailed);
 
 //GET /socialmedia/:id/edit: send html form for editing
-router.get('/:id/edit', controller.edit);
+// router.get('/:id/edit', controller.edit);
 
 //PUT /socialmedia/:id: update post by ID
 router.put('/:id', controller.update);
