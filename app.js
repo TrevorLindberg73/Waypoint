@@ -1,6 +1,7 @@
 // Requirements
 const express = require('express');
 const ejs = require('ejs');
+const morgan = require('morgan');
 const mongoose = require('mongoose');
 const userRoutes = require('./routes/userRoutes');
 const newsRoutes = require('./routes/newsRoutes');
@@ -27,15 +28,23 @@ mongoose.connect(url)
 
 //mount middleware
 app.use(express.static('public'));
+app.use(express.urlencoded({extended: true}));
+app.use(morgan('tiny'));
 
 // Set up Routes
 app.get('/', (req,res) =>{
     res.render('index');
 })
-app.use('/users', userRoutes);
+app.use('/user', userRoutes);
 app.use('/articles', newsRoutes);
 app.use('/socialmedia', socialRoutes);
 app.use('/lfg', lfgRoutes);
+
+app.use((req, res, next) => {
+    let err = new Error('The server can not find ' + req.url);
+    err.status = 404;
+    next(err);
+});
 
 // app.get('/login', (req,res) =>{
 //     res.render('login');

@@ -5,11 +5,13 @@
     <div class="container">
         <h2>Login Into <a href="/">Waypo<strong>Î</strong>nt</a></h2>
 
-        <form action="/" method="post">
+        <form action="/user/login" method="POST">
           <div class="form-group">
-            <input type="text" id="username" name="Email" placeholder="Email" required>
+            <label for="email">Email</label>
+            <input type="text" id="eail" name="email" placeholder="Email" required>
           </div>
           <div class="form-group">
+            <label for="password">Password</label>
             <input type="password" id="password" name="password" placeholder="Password" required>
           </div>
           <button class="login-button" type="submit">Log In</button>
@@ -18,7 +20,7 @@
             <div class="line"></div>
           </div>
         <div class="registration-link">
-          <a href="/users/register">Create New Account</a>
+          <a href="/user/register">Create New Account</a>
         </div>
       </div>
     </div>
