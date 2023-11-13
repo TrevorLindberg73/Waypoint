@@ -32,16 +32,10 @@ app.use(express.static('public'));
 app.get('/', (req,res) =>{
     res.render('index');
 })
-app.use('/users', userRoutes);
+app.use('/user', userRoutes);
 app.use('/articles', newsRoutes);
 app.use('/socialmedia', socialRoutes);
 app.use('/lfg', lfgRoutes);
-
-app.use((req, res, next) => {
-    let err = new Error('The server can not find ' + req.url);
-    err.status = 404;
-    next(err);
-});
 
 app.use((req, res, next) => {
     let err = new Error('The server can not find ' + req.url);
