@@ -5,19 +5,27 @@
     <div class="container">
         <h2>Register for <a href="/">Waypo<strong>Î</strong>nt</a></h2>
 
-        <form action="/user" method="POST">
+        <form action="/user/new" method="POST">
             <div class="form-group">
+              <label for="firstName">First Name</label>
               <input type="text" id="firstName" name="firstName" placeholder="First Name" required>
             </div>
             <div class="form-group">
+              <label for="lastName">Last Name</label>
               <input type="text" id="lastName" name="lastName" placeholder="Last Name" required>
             </div>
             <div class="form-group">
-              <input type="password" id="createPassword" name="createPassword" placeholder="Create Password" required>
+              <label for="email">Email</label>
+              <input type="text" id="email" name="email" placeholder="Email" required>
             </div>
             <div class="form-group">
-              <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required>
+              <label for="password">Password</label>
+              <input type="password" id="password" name="password" placeholder="Create Password" required>
             </div>
+            <!-- <div class="form-group">
+              <label for="confirmPassword">Confirm Password</label>
+              <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required>
+            </div> -->
             <button class="register-button" type="submit">Sign Up</button>
         </form>          
         <div class="separator">

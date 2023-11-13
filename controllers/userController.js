@@ -11,6 +11,36 @@ exports.showregister = (req, res, next) => {
     res.render('./user/register');
 }
 
+exports.loggedIn = (req, res, next) => {
+    let email = req.body.email;
+    let password = req.body.password;
+
+    console.log(email);
+    console.log(password);
+
+    model.findOne({email: email})
+    .then(user => {
+        if (user) {
+            user.comparePassword(password)
+            .then(result => {
+                if (result) {
+                    // req.session.user = user._id;
+                    // req.flash('Success', 'You have successfully logged in');
+                    res.redirect('/');
+                } else {
+                    // req.flash('Error', 'Wrong Password');
+                    res.redirect('/user/login');
+                }
+            })
+            .catch(err => next(err));
+        } else {
+            // req.flash('Error', 'Wrong Email Address');
+            res.redirect('/user/login');
+        }
+    })
+    .catch(err => next(err));
+}
+
 exports.create = (req, res, next) => {
     // let errors = validationResult(req);
     // if (!errors.isEmpty()) {
@@ -20,6 +50,7 @@ exports.create = (req, res, next) => {
     //     res.redirect('back');
     // }
     let user = new model(req.body);
+    console.log(req.body);
     // if (user.email) user.email = user.email.toLowerCase();
     user.save()
     .then((user)=>res.redirect('/user/login'))
