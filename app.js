@@ -43,6 +43,12 @@ app.use((req, res, next) => {
     next(err);
 });
 
+app.use((req, res, next) => {
+    let err = new Error('The server can not find ' + req.url);
+    err.status = 404;
+    next(err);
+});
+
 // app.get('/login', (req,res) =>{
 //     res.render('login');
 // })
