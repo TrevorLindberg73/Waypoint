@@ -5,7 +5,7 @@ const groupSchema = new Schema({
     category: {
         type: String,
         required: [true, 'category is required'],
-        enum: ['sports', 'gaming', 'board games', 'other']
+        enum: ['Sports', 'Gaming', 'Board Games', 'Other']
     },
     title: {
         type: String,

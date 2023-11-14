@@ -7,7 +7,9 @@
             <div class="header">
             <a href="/lfg/createGroup">Create Group</a>
             </div>
-        <% if (categories.length) { %>
+        <% if (groups.length) { %>
+            <% let categories = {}; %>
+
             <table>
                 <tr>
                     <th>Category</th>
@@ -17,32 +19,18 @@
                     <th>View Group</th>
                 </tr>
 
-                <!-- Each Group -->
-                <tr>
-                    <td><%= group.category %></td>
-                    <td><%= group.title %></td>
-                    <td><%= group.description %></td>
-                    <td> TBD / <%= group.size %></td>
-                    <td><a href="/lfg/<%= group.id %>">View</a></td>
-                </tr>
-
-                <!-- Each Group -->
-                <!-- <tr>
-                    <td>Sports</td>
-                    <td>Pick-Up Basketball</td>
-                    <td>Looking for a 3 v 3 pick-up game near Concord</td>
-                    <td>3 / 6</td>
-                    <td><a href="/lfg/viewGroup">View</a></td>
-                </tr> -->
-
-                <!-- Each Group -->
-                <!-- <tr>
-                    <td>..</td>
-                    <td>Group 2</td>
-                    <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</td>
-                    <td>1 / 10</td>
-                    <td><a href="/lfg/viewGroup">View</a></td>
-                </tr>     -->
+                    <% groups.forEach((group) => { %>
+                        <tr>
+                            <% if (!categories[group.category]) { %>
+                                <td><%= group.category %></td>
+                                <td><%= group.title %></td>
+                                <td><%= group.description %></td>
+                                <td> TBD / <%= group.size %></td>
+                                <td><a href="/lfg/<%= group.id %>">View</a></td>
+                            <% } %>
+                        </tr>
+                        <% categories[group.category] = true; %>
+                    <% }); %>
             </table>
         <% } else { %>
             <h2>There are no groups to display.</h2>

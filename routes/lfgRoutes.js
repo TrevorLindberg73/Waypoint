@@ -11,7 +11,7 @@ router.get('/', lfgController.dashboard);
 router.get('/createGroup', lfgController.new);
 
 //POST /groups: create a new group
-router.post('/', lfgController.create);
+router.post('/createGroup', lfgController.create);
 
 //GET /events/:id: send details of group identified by id
 router.get('/:id', lfgController.view);

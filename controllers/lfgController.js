@@ -3,9 +3,10 @@ const model = require('../models/group');
 exports.dashboard = (req, res, next) => {
     model.find()
         .then((groups) => {
-            let categories = groups.map((group) => group.category);
-            let sortCategories = [...new Set(categories)];
-            res.render('./LFG/LFG_dashboard', { groups, categories: sortCategories });
+            res.render('./LFG/LFG_dashboard', {groups});
+            // let categories = groups.map((group) => group.category);
+            // let sortCategories = [...new Set(categories)];
+            // res.render('./LFG/LFG_dashboard', { groups, categories: sortCategories });
         })
         .catch(err => next(err));
 }
@@ -17,6 +18,7 @@ exports.new = (req,res) => {
 
 exports.create = (req, res, next) => {
     let group = new model(req.body);//create a new event document
+    console.log(req.body);
     group.save()//insert the document to the database
     .then(group=> res.redirect('/lfg'))
     .catch(err=>{

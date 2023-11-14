@@ -3,30 +3,30 @@
 <link rel="stylesheet" type="text/css" href="/css/lfg/style.css">
 <body>
     <h1 class="create-group-header">Create Group Form</h1>
-    <form action="/lfg" enctype= "multipart/form-data"  method="POST" class="form-container" >
+    <form action="/lfg/createGroup"  method="POST" class="form-container" >
         <div class="input-group">
             <label for="category">Category:</label>
             <select id="category" name="category" required>
             <option value="" disabled selected>-- Select a Category --</option>
-            <option value="sports">Sports</option>
-            <option value="gaming">Gaming</option>
-            <option value="board games">Board Games</option>
-            <option value="other">Other</option>
+            <option value="Sports">Sports</option>
+            <option value="Gaming">Gaming</option>
+            <option value="Board Games">Board Games</option>
+            <option value="Other">Other</option>
             </select>
         </div>
         <div class="input-group">
             <label for="title">Group Title: </label>
-            <input type="text" id="title" name="title" placeholder="title" required>
+            <input type="text" id="title" name="title" placeholder="Title" required>
         </div>
 
         <div class="input-group">
             <label for="description">Description: </label>
-            <textarea id="description" name="description" placeholder="description"  rows="1" cols="100" required ></textarea>
+            <textarea id="description" name="description" placeholder="Description"  rows="1" cols="100" required ></textarea>
         </div>
 
         <div class="input-group">
             <label for="preferences">Preferences: </label>
-            <textarea id="preferences" name="preferences" placeholder="preferences"  rows="5" cols="100" required minlength="10"></textarea>
+            <textarea id="preferences" name="preferences" placeholder="Preferences"  rows="5" cols="100" required minlength="10"></textarea>
         </div>
 
         <div class="input-group">
@@ -34,7 +34,7 @@
             <input type="number" id="size" name="size" placeholder="#" required min="0">
         </div>
 
-        <input type="submit" value="Submit">
+        <button type="submit">Submit</button>
     </form>
 </body>
 
