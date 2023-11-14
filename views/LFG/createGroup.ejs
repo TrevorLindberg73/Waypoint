@@ -3,14 +3,14 @@
 <link rel="stylesheet" type="text/css" href="/css/lfg/style.css">
 <body>
     <h1 class="create-group-header">Create Group Form</h1>
-    <form action="/" enctype= "multipart/form-data"  method="POST" class="form-container" >
+    <form action="/lfg" enctype= "multipart/form-data"  method="POST" class="form-container" >
         <div class="input-group">
             <label for="category">Category:</label>
             <select id="category" name="category" required>
             <option value="" disabled selected>-- Select a Category --</option>
             <option value="sports">Sports</option>
             <option value="gaming">Gaming</option>
-            <option value="board">Board Games</option>
+            <option value="board games">Board Games</option>
             <option value="other">Other</option>
             </select>
         </div>
@@ -21,7 +21,7 @@
 
         <div class="input-group">
             <label for="description">Description: </label>
-            <textarea id="description" name="description" placeholder="description"  rows="1" cols="100" required minlength="10"></textarea>
+            <textarea id="description" name="description" placeholder="description"  rows="1" cols="100" required ></textarea>
         </div>
 
         <div class="input-group">
