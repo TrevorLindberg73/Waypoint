@@ -112,7 +112,7 @@ textarea:focus {
     box-shadow: 0 0 5px orangered; 
 }
 
-input[type="submit"] {
+button[type="submit"] {
     background-color: orangered;
     color: white;
     padding: 10px 20px;
@@ -122,7 +122,7 @@ input[type="submit"] {
     margin-bottom: 20px;
 }
 
-input[type="submit"]:hover {
+button[type="submit"]:hover {
     color: black;
 }
 
