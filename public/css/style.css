@@ -65,6 +65,27 @@ nav ul li a:hover:before{
 /*Navigation Ends*/
 
 /* Main Content */
+.container-custom{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.filter-box {
+  border-radius: 10px;
+  padding: 20px;
+  color: #fff;
+  background-color: #737373;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.filter-box label {
+  display: block;
+  margin-bottom: 10px;
+}
 /* .row{
   display: flex;
   justify-content: center;
