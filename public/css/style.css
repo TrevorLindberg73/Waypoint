@@ -65,7 +65,28 @@ nav ul li a:hover:before{
 /*Navigation Ends*/
 
 /* Main Content */
-.row{
+.container-custom{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.filter-box {
+  border-radius: 10px;
+  padding: 20px;
+  color: #fff;
+  background-color: #737373;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.filter-box label {
+  display: block;
+  margin-bottom: 10px;
+}
+/* .row{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -83,6 +104,31 @@ nav ul li a:hover:before{
   max-height: 100%;
   width: auto;
   height: auto;
+} */
+
+.filter-section {
+  padding: 20px;
+  /* background: #f7f7f7; */
+}
+
+.filter-bar {
+  margin-bottom: 20px;
+}
+
+.filter-bar input[type="text"] {
+  width: 70%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.filter-bar button {
+  padding: 10px 15px;
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
   

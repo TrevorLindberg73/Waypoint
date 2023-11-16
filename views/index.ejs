@@ -1,55 +1,70 @@
-<% let pageTitle = "Homepage"; %>
-<%- include('./partials/header.ejs', { pageTitle: pageTitle }) %>
+<% let pageTitle="Homepage" ; %>
+  <%- include('./partials/header.ejs', { pageTitle: pageTitle }) %>
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-3">
-            <div class="card mx-auto">
-                <img src="/images/derrickLewis.jpg" class="card-img-top" alt="coverPic">
-                <div class="card-body">
+    <div class="container">
+      <div class="row">
+        <div class="col-10">
+          <div class="container-custom">
+            <div class="row row-cols-1 row-cols-md-2">
+              <div class="col-md-6 mt-4">
+                <div class="card h-100">
+                  <img src="/images/derrickLewis.jpg" class="card-img-top" alt="coverPic">
+                  <div class="card-body">
                     <h5 class="card-title">UFC's Derrick Lewis arrested</h5>
-                    <p class="card-text">Days before his Fight Night main event, Derrick Lewis has been arrested for reckless driving.</p>
+                    <p class="card-text">Days before his Fight Night main event, Derrick Lewis has been arrested for
+                      reckless
+                      driving.</p>
                     <a href="articles/ufcarticle" class="btn btn-primary">Read More</a>
+                  </div>
                 </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card mx-auto">
-                <img src="/images/raiders.jpg" class="card-img-top" alt="coverPic">
-                <div class="card-body">
+              </div>
+              <div class="col-md-6 mt-4">
+                <div class="card h-100">
+                  <img src="/images/raiders.jpg" class="card-img-top" alt="coverPic">
+                  <div class="card-body">
                     <h5 class="card-title">Raiders fire head coach and general manager</h5>
-                    <p class="card-text">Head coach Josh McDaniels and general manager David Ziegler have been fired after horrible season.</p>
-                    <a href="#" class="btn btn-primary">Read More</a>
+                    <p class="card-text">Head coach Josh McDaniels and general manager David Ziegler have been fired after
+                      horrible season.</p>
+                    <a href="articles/ufcarticle" class="btn btn-primary">Read More</a>
+                  </div>
                 </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-3">
-            <div class="card mx-auto">
-                <img src="/images/spiderman.jpg" class="card-img-top" alt="coverPic">
-                <div class="card-body">
+              </div>
+              <div class="col-md-6 mt-4">
+                <div class="card h-100">
+                  <img src="/images/spiderman.jpg" class="card-img-top" alt="coverPic">
+                  <div class="card-body">
                     <h5 class="card-title">Spider-Man 2 is Playstation's Fastest-Selling Game</h5>
                     <p class="card-text">Spider-Man 2 is now Playstation's fastest-selling game after a few days.</p>
-                    <a href="#" class="btn btn-primary">Read More</a>
+                    <a href="articles/ufcarticle" class="btn btn-primary">Read More</a>
+                  </div>
                 </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card mx-auto">
-                <img src="/images/mw3.jpg" class="card-img-top" alt="coverPic">
-                <div class="card-body">
+              </div>
+              <div class="col-md-6 mt-4">
+                <div class="card h-100">
+                  <img src="/images/mw3.jpg" class="card-img-top" alt="coverPic">
+                  <div class="card-body">
                     <h5 class="card-title">Modern Warefare III PC Specs</h5>
-                    <p class="card-text">If you are curious that you need to upgrade before the game comes out, we've got you.</p>
-                    <a href="#" class="btn btn-primary">Read More</a>
+                    <p class="card-text">If you are curious that you need to upgrade before the game comes out, we've got
+                      you.
+                    </p>
+                    <a href="articles/ufcarticle" class="btn btn-primary">Read More</a>
+                  </div>
                 </div>
+              </div>
             </div>
+          </div>
         </div>
+        <div class="col-2">
+          <div class="fixed-filters mt-4">
+            <div class="filter-box">
+              <h5>Filter</h5>
+              <label><input type="checkbox" value="Sports"> Sports</label>
+              <label><input type="checkbox" value="Gaming"> Gaming</label>
+              <!-- Add more checkboxes as needed -->
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
 
-<!-- <h4>Home Page</h4> -->
-<!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo quos quasi voluptatum repellendus non sunt animi nostrum praesentium? Facere aperiam porro corporis, vero quidem consectetur. Obcaecati rem id amet accusamus sapiente ad veritatis est perferendis! Quas quidem perspiciatis accusantium, repellendus minus quasi incidunt inventore perferendis deserunt eligendi?</p> -->
-
-<%- include('./partials/footer.ejs')%>
+    <%- include('./partials/footer.ejs')%>
