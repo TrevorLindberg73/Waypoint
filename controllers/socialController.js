@@ -20,3 +20,7 @@ exports.update = (req,res,next) =>{
 exports.delete = (req, res, next) =>{
     res.render('./social_media/index');
 }
+
+exports.showprofile = (req, res, next) =>{
+    res.render('./social_media/profile');
+}

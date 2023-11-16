@@ -11,4 +11,6 @@ router.get('/register', con.showregister);
 
 router.post('/new', con.create);
 
+router.get('/profile', con.showprofile);
+
 module.exports = router;

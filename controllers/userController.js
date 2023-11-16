@@ -11,6 +11,9 @@ exports.showregister = (req, res, next) => {
     res.render('./user/register');
 }
 
+exports.showprofile = (req, res, next) => {
+    res.render('./user/profile')
+}
 exports.loggedIn = (req, res, next) => {
     let email = req.body.email;
     let password = req.body.password;
