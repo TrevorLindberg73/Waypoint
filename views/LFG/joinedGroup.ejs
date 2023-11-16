@@ -1,0 +1,28 @@
+<% let pageTitle="LFG Dashboard" ; %>
+<%- include('../partials/header.ejs', { pageTitle: pageTitle }) %>
+<link rel="stylesheet" type="text/css" href="/css/lfg/style.css">
+<h1 class="group-title"><%= group.title %></h1>
+<body>
+    <div class="message-container">
+        <ul class="message-list">
+            
+            <li class="message other-user-message e"><em>Username 1:</em> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </li>
+            <li class="message user-message"><strong>You:</strong> Hello, this is a user message.</li>
+            <li class="message other-user-message e"><em>Username 2:</em> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </li>
+            <li class="message user-message"><strong>You:</strong> Hello, this is a user message.</li>
+            <li class="message other-user-message e"><em>Username 1:</em> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </li>
+            <li class="message user-message"><strong>You:</strong> Hello, this is a user message.</li>
+            <li class="message other-user-message e"><em>Username 2:</em>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </li>
+        </ul>
+
+        <div class="message-form">
+            <input type="text" class="message-input" placeholder="Type your message...">
+            <button class="send-button">Send</button>
+        </div>
+    </div>
+</body>
+<div class="links">
+    <a href="/lfg">Back To LFG Dashboard</a>
+</div>
+
+<%- include('../partials/footer.ejs')%>
