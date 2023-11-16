@@ -172,6 +172,7 @@ button[type="submit"]:hover {
     display: flex;
     justify-content: space-between;
     width: 100%;
+    margin-bottom: 20px;
 }
 
 .links a {
@@ -189,3 +190,60 @@ button[type="submit"]:hover {
 .links a:nth-child(2) {
     order: 1;
 }
+
+/*Joined Group front end*/
+.message-container {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 15px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.message-list {
+    list-style: none;
+    padding: 0;
+}
+
+.message {
+    margin-bottom: 10px;
+}
+
+.user-message {
+    color: #333;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: rgb(255, 173, 144)
+}
+
+.other-user-message  {
+    color: #666;
+    font-style: italic;
+}
+
+.message-form {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.message-input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.send-button {
+    background-color: #4caf50;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+} 
+
+.send-button:hover{
+    background-color: #119815;
+} 
