@@ -2,6 +2,7 @@
 const express = require('express');
 const ejs = require('ejs');
 const morgan = require('morgan');
+const methodOverride = require('method-override');
 const mongoose = require('mongoose');
 const userRoutes = require('./routes/userRoutes');
 const newsRoutes = require('./routes/newsRoutes');
@@ -30,6 +31,7 @@ mongoose.connect(url)
 app.use(express.static('public'));
 app.use(express.urlencoded({extended: true}));
 app.use(morgan('tiny'));
+app.use(methodOverride('_method'));
 
 // Set up Routes
 app.get('/', (req,res) =>{
