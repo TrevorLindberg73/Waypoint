@@ -7,6 +7,7 @@ const userRoutes = require('./routes/userRoutes');
 const newsRoutes = require('./routes/newsRoutes');
 const socialRoutes = require('./routes/socialRoutes');
 const lfgRoutes = require('./routes/lfgRoutes');
+const postsRoutes = require('./routes/postsRoutes');
 
 // Create App
 const app = express();
@@ -39,6 +40,7 @@ app.use('/user', userRoutes);
 app.use('/articles', newsRoutes);
 app.use('/socialmedia', socialRoutes);
 app.use('/lfg', lfgRoutes);
+app.use('/posts', postsRoutes);
 
 app.use((req, res, next) => {
     let err = new Error('The server can not find ' + req.url);

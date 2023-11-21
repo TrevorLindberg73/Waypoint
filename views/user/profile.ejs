@@ -18,10 +18,16 @@
                     <p>999 <img src="/images/social-media/heart.png" alt="" width="40" height="40"></p>
                 </div>
             </div>
-            <div class="postheader">
-                <h1 class="centered-text" style="padding-top: 0px;">Posts</h1>
-            </div>
-            <!--Start of First Post-->
+            <%if(posts.length) {%>
+                <div class="postheader">
+                    <h1 class="centered-text" style="padding-top: 0px;">Posts</h1>
+                </div>
+            } else {%>
+                <div class="postheader">
+                    <h1 class="centered-text" style="padding-top: 0px;">No Posts Yet</h1>
+                </div>
+            <%}%>
+            <!-- Start of First Post
             <div class="post-container">
                 <div class="top-bar">
                     <img src="/images/derrickLewis.jpg" alt="" class="profile-picture">
@@ -50,7 +56,7 @@
                     </div>
                 </div>
             </div>
-            <!--End of First Post-->
+            End of First Post
             <div class="post-container">
                 <div class="top-bar">
                     <img src="/images/derrickLewis.jpg" alt="" class="profile-picture">
@@ -78,7 +84,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
 
         <%- include('../partials/footer.ejs')%>
