@@ -104,6 +104,9 @@ exports.update = (req, res, next)=>{
         return next(err);
     }
 
+    console.log(req.body);
+    console.log(group);
+
     model.findByIdAndUpdate(id, group, {useFindAndModify: false, runValidators:true})
     .then(group=>{
         if(group){

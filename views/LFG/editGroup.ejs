@@ -3,15 +3,15 @@
 <link rel="stylesheet" type="text/css" href="/css/lfg/style.css">
 <body>
     <h1 class="create-group-header">Create Group Form</h1>
-    <form action="/lfg/<%= group._id %>?_method=PUT"  enctype= "multipart/form-data" method="POST" class="form-container" >
+    <form action="/lfg/<%= group._id %>?_method=PUT" method="POST" class="form-container" >
         <div class="input-group">
             <label for="category">Category:</label>
             <select id="category" name="category" required>
-            <option value="" disabled selected>-- Select a Category --</option>
-            <option value="Sports" <%= group.category === 'Sports' ? 'selected' : '' %>>Sports</option>
-            <option value="Gaming" <%= group.category === 'Gaming' ? 'selected' : '' %>>Gaming</option>
-            <option value="Board Games" <%= group.category === 'Board Games' ? 'selected' : '' %>>Board Games</option>
-            <option value="Other" <%= group.category === 'Other' ? 'selected' : '' %>>Other</option>
+                <option value="" disabled selected>-- Select a Category --</option>
+                <option value="Sports" <%= group.category === 'Sports' ? 'selected' : '' %>>Sports</option>
+                <option value="Gaming" <%= group.category === 'Gaming' ? 'selected' : '' %>>Gaming</option>
+                <option value="Board Games" <%= group.category === 'Board Games' ? 'selected' : '' %>>Board Games</option>
+                <option value="Other" <%= group.category === 'Other' ? 'selected' : '' %>>Other</option>
             </select>
         </div>
         <div class="input-group">
