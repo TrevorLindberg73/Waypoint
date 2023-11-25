@@ -7,4 +7,6 @@ router.get('/ufcarticle', controller.showarticle);
 
 router.get('/', controller.index);
 
+router.get('/filter/:category', controller.filter);
+
 module.exports = router;
