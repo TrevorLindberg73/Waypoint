@@ -5,12 +5,16 @@ exports.index = (req,res) => {
     res.render('./social_media/index');
 }
 
-exports.showDetailed = (req, res) =>{
-    res.render('./social_media/post_detailed');
+exports.create = (req,res,next) => {
+    
 }
 
-exports.create = (req,res,next) =>{
+exports.showNewPost = (req,res,next) =>{
     res.render('./social_media/newform');
+}
+
+exports.showDetailed = (req, res) =>{
+    res.render('./social_media/post_detailed');
 }
 
 exports.update = (req,res,next) =>{
