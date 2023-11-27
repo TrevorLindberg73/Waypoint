@@ -8,7 +8,7 @@
             <a href="/lfg/createGroup">Create Group</a>
             </div>
         <% if (groups.length) { %>
-            <% let categories = {}; %>
+            <% let id = {}; %>
 
             <table>
                 <tr>
@@ -21,15 +21,15 @@
 
                     <% groups.forEach((group) => { %>
                         <tr>
-                            <% if (!categories[group.category]) { %>
+                            <% if (!id[group._id]) { %>
                                 <td><%= group.category %></td>
                                 <td><%= group.title %></td>
                                 <td><%= group.description %></td>
                                 <td> TBD / <%= group.size %></td>
-                                <td><a href="/lfg/<%= group.id %>">View</a></td>
+                                <td><a href="/lfg/<%= group._id %>">View</a></td>
                             <% } %>
                         </tr>
-                        <% categories[group.category] = true; %>
+                        <% id[group._id] = true; %>
                     <% }); %>
             </table>
         <% } else { %>
