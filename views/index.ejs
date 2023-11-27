@@ -3,68 +3,46 @@
 
     <div class="container">
       <div class="row">
-        <div class="col-10">
-          <div class="container-custom">
-            <div class="row row-cols-1 row-cols-md-2">
-              <div class="col-md-6 mt-4">
-                <div class="card h-100">
-                  <img src="/images/derrickLewis.jpg" class="card-img-top" alt="coverPic">
-                  <div class="card-body">
-                    <h5 class="card-title">UFC's Derrick Lewis arrested</h5>
-                    <p class="card-text">Days before his Fight Night main event, Derrick Lewis has been arrested for
-                      reckless
-                      driving.</p>
-                    <a href="articles/ufcarticle" class="btn btn-primary">Read More</a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6 mt-4">
-                <div class="card h-100">
-                  <img src="/images/raiders.jpg" class="card-img-top" alt="coverPic">
-                  <div class="card-body">
-                    <h5 class="card-title">Raiders fire head coach and general manager</h5>
-                    <p class="card-text">Head coach Josh McDaniels and general manager David Ziegler have been fired after
-                      horrible season.</p>
-                    <a href="articles/ufcarticle" class="btn btn-primary">Read More</a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6 mt-4">
-                <div class="card h-100">
-                  <img src="/images/spiderman.jpg" class="card-img-top" alt="coverPic">
-                  <div class="card-body">
-                    <h5 class="card-title">Spider-Man 2 is Playstation's Fastest-Selling Game</h5>
-                    <p class="card-text">Spider-Man 2 is now Playstation's fastest-selling game after a few days.</p>
-                    <a href="articles/ufcarticle" class="btn btn-primary">Read More</a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6 mt-4">
-                <div class="card h-100">
-                  <img src="/images/mw3.jpg" class="card-img-top" alt="coverPic">
-                  <div class="card-body">
-                    <h5 class="card-title">Modern Warefare III PC Specs</h5>
-                    <p class="card-text">If you are curious that you need to upgrade before the game comes out, we've got
-                      you.
-                    </p>
-                    <a href="articles/ufcarticle" class="btn btn-primary">Read More</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
         <div class="col-2">
           <div class="fixed-filters mt-4">
             <div class="filter-box">
               <h5>Filter</h5>
-              <label><input type="checkbox" value="Sports"> Sports</label>
-              <label><input type="checkbox" value="Gaming"> Gaming</label>
+              <button class="btn btn-light mb-2" onclick="filterNews('Sports')">Sports</button>
+              <button class="btn btn-light mb-2" onclick="filterNews('Gaming')">Gaming</button>
+              <button class="btn btn-light" onclick="filterNews('All')">All News</button>
               <!-- Add more checkboxes as needed -->
             </div>
           </div>
         </div>
+        <div class="col-10">
+          <div class="container-custom">
+            <div class="row row-cols-1 row-cols-md-2">
+                <% newsItems.forEach((newsItem) => {%>
+              <div class="col-md-6 mt-4">
+                <div class="card h-100">
+                  <img src="<%= newsItem.imageURL %>" class="card-img-top" alt="coverPic">
+                  <div class="card-body">
+                    <h5 class="card-title"><%= newsItem.title %></h5>
+                    <p class="card-text"><%= newsItem.description %></p>
+                    <a href="<%= newsItem.link %>" target="_blank" class="btn btn-primary">Read More</a>
+                  </div>
+                  <div class="card-footer"><%= newsItem.formattedPubDate %></div>
+                </div>
+              </div>
+              <% }); %>
+          </div>
+        </div>
       </div>
     </div>
+    </div>
 
-    <%- include('./partials/footer.ejs')%>
+    <script>
+      function filterNews(category) {
+        if (category === 'All') {
+            window.location.href = '/news'; // Redirect to the main page showing all news
+        } else {
+            window.location.href = '/news/filter/' + category;
+        }
+      }
+  </script>
+<%- include('./partials/footer.ejs')%>

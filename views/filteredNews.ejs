@@ -1,0 +1,47 @@
+<% let pageTitle = category + ' News'; %>
+<%- include('./partials/header.ejs', { pageTitle: pageTitle }) %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-2">
+            <div class="fixed-filters mt-4">
+                <div class="filter-box">
+                    <h5>Filter</h5>
+                    <button class="btn btn-light mb-2" onclick="filterNews('Sports')">Sports</button>
+                    <button class="btn btn-light mb-2" onclick="filterNews('Gaming')">Gaming</button>
+                    <button class="btn btn-light" onclick="filterNews('All')">All News</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-10">
+            <div class="container-custom">
+                <div class="row row-cols-1 row-cols-md-2">
+                    <% newsItems.forEach((newsItem) => { %>
+                        <div class="col-md-6 mt-4">
+                            <div class="card h-100">
+                                <img src="<%= newsItem.imageURL %>" class="card-img-top" alt="coverPic">
+                                <div class="card-body">
+                                    <h5 class="card-title"><%= newsItem.title %></h5>
+                                    <p class="card-text"><%= newsItem.description %></p>
+                                    <a href="<%= newsItem.link %>" target="_blank" class="btn btn-primary">Read More</a>
+                                </div>
+                                <div class="card-footer"><%= newsItem.formattedPubDate %></div>
+                            </div>
+                        </div>
+                    <% }); %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function filterNews(category) {
+        if (category === 'All') {
+            window.location.href = '/news'; // Redirect to the main page showing all news
+        } else {
+            window.location.href = '/news/filter/' + category;
+        }
+      }
+</script>
+<%- include('./partials/footer.ejs') %>

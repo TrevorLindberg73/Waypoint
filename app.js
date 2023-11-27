@@ -33,12 +33,13 @@ app.use(morgan('tiny'));
 
 // Set up Routes
 app.get('/', (req,res) =>{
-    res.render('index');
-})
+    res.redirect('/news');
+});
 app.use('/user', userRoutes);
 app.use('/articles', newsRoutes);
 app.use('/socialmedia', socialRoutes);
 app.use('/lfg', lfgRoutes);
+app.use('/news', newsRoutes);
 
 app.use((req, res, next) => {
     let err = new Error('The server can not find ' + req.url);
