@@ -1,6 +1,11 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+const messageSchema = new Schema({
+    userId: {type: Schema.Types.ObjectId, ref: 'User'},
+    content: {type: String}
+});
+
 const groupSchema = new Schema({
     category: {
         type: String,
@@ -20,10 +25,12 @@ const groupSchema = new Schema({
         required: [true, 'preferences is required'],
         minLength: [10, 'the preferences should have at least 10 characters']
     },
-    size:{
+    maxSize:{
         type: Number,
         required: [true, 'size is required']
-    }
+    },
+    size: {type: Number, required: [true]},
+    messages: [messageSchema]
 });
 
 //collection name is group in the database
