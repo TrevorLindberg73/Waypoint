@@ -43,7 +43,7 @@ exports.view = (req, res, next)=>{
         if(group){
             res.render('./LFG/viewGroup', {group});
         } else {
-            let err = new Error('Cannot find event with id ' + id);
+            let err = new Error('Cannot find group with id ' + id);
             err.status = 404;
             next(err);
         }       
@@ -65,10 +65,83 @@ exports.joinedGroup = (req,res) => {
         if(group){
             res.render('./LFG/joinedGroup', {group});
         } else {
-            let err = new Error('Cannot find event with id ' + id);
+            let err = new Error('Cannot find group with id ' + id);
             err.status = 404;
             next(err);
         }       
+    })
+    .catch(err=>next(err));
+}
+
+exports.edit = (req, res, next)=>{
+    let id = req.params.id;
+    if(!id.match(/^[0-9a-fA-F]{24}$/)){
+        let err = new Error('Invalid group id');
+        err.status = 400;
+        return next(err);
+    }
+    model.findById(id)
+    .lean()
+    .then(group=>{
+        if(group){
+            res.render('./LFG/editGroup', {group});    
+        } else {
+            let err = new Error('Cannot find group with id ' + id);
+            err.status = 404;
+            next(err);
+        }       
+    })
+    .catch(err=>next(err));
+}
+
+exports.update = (req, res, next)=>{
+    let group = req.body;
+    let id = req.params.id;
+
+    if(!id.match(/^[0-9a-fA-F]{24}$/)){
+        let err = new Error('Invalid group id');
+        err.status = 400;
+        return next(err);
+    }
+
+    console.log(req.body);
+    console.log(group);
+
+    model.findByIdAndUpdate(id, group, {useFindAndModify: false, runValidators:true})
+    .then(group=>{
+        if(group){
+            res.redirect("/lfg/" + id);    
+        } else {
+            let err = new Error('Cannot find group with id ' + id);
+            err.status = 404;
+            next(err);
+        }
+    })
+    .catch(err=>{
+        if(err.name == "ValidationError"){
+            err.status = 400;
+        }
+        next(err);
+    }); 
+}
+
+exports.delete = (req, res, next)=>{
+    let id= req.params.id;
+    if(!id.match(/^[0-9a-fA-F]{24}$/)){
+        let err = new Error('Invalid group id');
+        err.status = 400;
+        return next(err);
+    }
+
+    model.findByIdAndDelete(id, {useFindANdModify: false})
+    .then(group=>{
+        if(group){
+            res.redirect('/lfg'); 
+        } else {
+            let err = new Error('Cannot find group with id ' + id);
+            err.status = 404;
+            next(err);
+        }
     })
     .catch(err=>next(err));
 }
