@@ -24,17 +24,18 @@ exports.loggedIn = (req, res, next) => {
             user.comparePassword(password)
             .then(result => {
                 if (result) {
-                    // req.session.user = user._id;
-                    // req.flash('Success', 'You have successfully logged in');
+                    req.session.user = user._id;
+                    req.session.messageUserId = user._id;
+                    req.flash('Success', 'You have successfully logged in');
                     res.redirect('/');
                 } else {
-                    // req.flash('Error', 'Wrong Password');
+                    req.flash('Error', 'Wrong Password');
                     res.redirect('/user/login');
                 }
             })
             .catch(err => next(err));
         } else {
-            // req.flash('Error', 'Wrong Email Address');
+            req.flash('Error', 'Wrong Email Address');
             res.redirect('/user/login');
         }
     })
@@ -51,19 +52,28 @@ exports.create = (req, res, next) => {
     // }
     let user = new model(req.body);
     console.log(req.body);
-    // if (user.email) user.email = user.email.toLowerCase();
+    if (user.email) user.email = user.email.toLowerCase();
     user.save()
     .then((user)=>res.redirect('/user/login'))
     .catch(err=>{
         if(err.name === 'ValidationError') {
-            // req.flash('error', err.message);
-            // res.redirect('/user/new');
+            req.flash('error', err.message);
+            res.redirect('/user/new');
         }
         if (err.code === 11000) {
-            // req.flash('error', 'That email has been taken');
-            // res.redirect('/user/new');
+            req.flash('error', 'That email has been taken');
+            res.redirect('/user/new');
         }
         next(err);
     });
     
 };
+
+exports.logout = (req, res, next) => {
+    req.session.destroy(err=>{
+        if(err) 
+           return next(err);
+       else
+            res.redirect('/');  
+    });
+}

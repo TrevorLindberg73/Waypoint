@@ -28,4 +28,6 @@ router.delete('/:id', lfgController.delete);
 // GET /lfg/:id/joinedGroup: Render details of the specific lfg chat for joining, identified by the provided ID
 router.get('/:id/joinedGroup', lfgController.joinedGroup);
 
+router.post('/:id/message', lfgController.addMessage);
+
 module.exports = router;

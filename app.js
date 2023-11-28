@@ -8,6 +8,9 @@ const userRoutes = require('./routes/userRoutes');
 const newsRoutes = require('./routes/newsRoutes');
 const socialRoutes = require('./routes/socialRoutes');
 const lfgRoutes = require('./routes/lfgRoutes');
+const session = require('express-session');
+const MongoStore = require('connect-mongo');
+const flash = require('connect-flash');
 
 // Create App
 const app = express();
@@ -28,6 +31,26 @@ mongoose.connect(url)
 .catch(err => console.log(err.message));
 
 //mount middleware
+app.use(
+    session({
+        secret: "ajfeirf90aeu9eroejfoefj",
+        resave: false,
+        saveUninitialized: false,
+        store: new MongoStore({mongoUrl: 'mongodb://127.0.0.1:27017/waypoint'}),
+        cookie: {maxAge: 60*60*1000}
+        })
+);
+app.use(flash());
+
+app.use((req, res, next) => {
+    // console.log(req.session);
+    res.locals.user = req.session.user || null;
+    res.locals.messageUserId = req.session.user || null;
+    res.locals.errorMessages = req.flash('error');
+    res.locals.successMessages = req.flash('success');
+    next();
+});
+
 app.use(express.static('public'));
 app.use(express.urlencoded({extended: true}));
 app.use(morgan('tiny'));
