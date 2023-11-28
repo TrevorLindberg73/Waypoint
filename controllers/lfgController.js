@@ -63,6 +63,7 @@ exports.joinedGroup = async (req,res,next) => {
     try {
         const group = await model.findById(id).lean();
 
+
         if (!group) {
             let err = new Error('Cannot find group with id ' + id);
             err.status = 404;
@@ -72,7 +73,7 @@ exports.joinedGroup = async (req,res,next) => {
         if (group.size < group.maxSize) {
             group.size += 1;
 
-            model.findByIdAndUpdate(id, group, { useFindAndModify: false })
+            model.findByIdAndUpdate(id, group, { useFindAndModify: false }).populate('messages.userId', 'firstName')
             .then(group => {
                 if (group){
                     res.render('./LFG/joinedGroup', { group });

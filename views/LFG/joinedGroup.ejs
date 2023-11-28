@@ -9,7 +9,7 @@
             <% group.messages.forEach((message) => {%>
                 <li class="message <%= String(message.userId) === String(messageUserId) ? 'user-message' : 'other-user-message'%>">
                     <% if (String(message.userId) !== String(messageUserId)) { %>
-                        <em><%= message.userId %>:</em>
+                        <em><%= message.userId.firstName %>:</em>
                     <% } else { %>
                         <strong>You:</strong>
                     <% } %>
