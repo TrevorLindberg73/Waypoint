@@ -18,7 +18,7 @@ exports.new = (req,res) => {
 
 exports.create = (req, res, next) => {
     let group = new model(req.body);//create a new event document
-    group.size = 1;
+    // group.size = 1;
     console.log(req.body);
     group.save()//insert the document to the database
     .then(group=> res.redirect('/lfg'))
