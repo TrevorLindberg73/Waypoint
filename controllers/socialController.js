@@ -18,7 +18,6 @@ exports.create = (req,res,next) => {
         }
         next(err);
     });
-
 }
 
 exports.showNewPost = (req,res,next) =>{
