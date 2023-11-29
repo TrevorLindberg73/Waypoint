@@ -12,11 +12,12 @@
             
             Best regards,<br>
             Waypoint Community Manager</p>
+            <hr style="border-top: 8px double;">
         <ul class="message-list">
 
             <% group.messages.forEach((message) => {%>
-                <li class="message <%= String(message.userId) === String(messageUserId) ? 'user-message' : 'other-user-message'%>">
-                    <% if (String(message.userId) !== String(messageUserId)) { %>
+                <li class="message <%= String(message.userId._id) === String(messageUserId) ? 'user-message' : 'other-user-message'%>">
+                    <% if (String(message.userId._id) !== String(messageUserId)) { %>
                         <em><%= message.userId.firstName %>:</em>
                     <% } else { %>
                         <strong>You:</strong>
