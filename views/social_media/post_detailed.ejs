@@ -2,4 +2,9 @@
 <%- include('../partials/header.ejs', { pageTitle: pageTitle }) %>
 <p>Title: <%= post.title%></p>
 <p>Content: <%= post.content%></p>
+<p>ID: <%= post.id%></p>
+<form>
+    <button type="submit" formmethod="GET" formaction="/socialmedia/<%=post.id%>/edit">Edit</button>
+</form>
+
 <%- include('../partials/footer.ejs')%>

@@ -50,9 +50,24 @@ exports.edit = (req,res,next) =>{
 }
 
 exports.update = (req,res,next) =>{
-    res.render('./social_media/editform');
+
+    let post = req.body;
+    let id = req.params.id;
+
+    model.findByIdAndUpdate(id, post, {useFindAndModify: false, runValidators: true})
+    .then(post=>{res.redirect('/social_media/'+id)})
+    .catch(err=>{
+        if(err.name === 'ValidationError') {
+            err.status = 400;
+        }
+        next(err)
+    });
 }
 
 exports.delete = (req, res, next) =>{
-    res.render('./social_media/index');
+    let id = req.params.id;
+    
+    model.findByIdAndDelete(id, {useFindAndModify: false})
+    .then(post=>{res.redirect('/social_media')})
+    .catch(err=>next(err));
 }

@@ -25,6 +25,6 @@ router.put('/:id', controller.update);
 //DELETE /socialmedia/:id: deletes post by ID
 router.get('/:id', controller.delete)
 
-router.get('/:id/edit', controller.update);
+router.get('/:id/edit', controller.edit);
 
 module.exports = router;
