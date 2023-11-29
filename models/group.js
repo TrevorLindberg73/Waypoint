@@ -25,11 +25,11 @@ const groupSchema = new Schema({
         required: [true, 'preferences is required'],
         minLength: [10, 'the preferences should have at least 10 characters']
     },
-    maxSize:{
-        type: Number,
-        required: [true, 'size is required']
-    },
-    size: {type: Number, required: [true]},
+    // maxSize:{
+    //     type: Number,
+    //     required: [true, 'size is required']
+    // },
+    // size: {type: Number, required: [true]},
     messages: [messageSchema]
 });
 
