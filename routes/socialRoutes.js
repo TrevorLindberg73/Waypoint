@@ -8,7 +8,7 @@ const router = express.Router();
 router.get('/', controller.index);
 
 //GET /socialmedia/new: send html form for creating new post
-router.get('/new', controller.create);
+router.get('/new', controller.showNewPost);
 
 //GET /socialmedia: creates new post
 router.post('/', controller.create);
