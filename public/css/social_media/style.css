@@ -35,6 +35,32 @@
     display: flex;
     flex-direction: column;
     gap:20px;
+
+
+    .new-post{
+        background-color: orangered;
+        padding:20px;
+        margin-left: 25%;
+        margin-right: 25%;
+        border-radius: 20px;
+        box-shadow: 5px 5px 5px black;
+        transition: 500ms;
+
+        .new-form-link{
+            color:white;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: 600;
+            width:100%;
+            height:100%;
+            transition: 500ms;
+        }
+    }
+
+    .new-form-link:hover{
+        transition: 500ms;
+        font-size: 28px;
+    }
 }
 
 body {
