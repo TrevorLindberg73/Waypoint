@@ -1,8 +1,5 @@
 .content-container{
     height:100vh !important;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 }
 
 .container {
@@ -113,7 +110,6 @@ body {
 
 .right-container .top-bar{
     display: flex;
-    justify-content: space-between;
     align-items: center;
 }
 

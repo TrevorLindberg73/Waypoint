@@ -59,37 +59,18 @@
                 <div class="right-container">
                     <h3>Top Post</h3>
                     <!--FOR EACH POST-->
+                    <% for (let i = 0; i < Math.min(3, posts.length); i++) { %>
                     <div class="post">
                         <div class="top-bar">
                             <img src="/images/social-media/default-profile.jpg" alt="">
-                            <p><a href="/">Unknown Workplace Fest</a></p>
+                            <p><a href="/"><%= posts[i].title %></a></p>
                         </div>
                         <div class="post-stats">
                             <p><img src="/images/social-media/heart.png" alt=""> 999</p>
                             <p><img src="/images/social-media/comment.png" alt=""> 45</p>
                         </div>
                     </div>
-                    <!--END FOR EACH POST-->
-                    <div class="post">
-                        <div class="top-bar">
-                            <img src="/images/social-media/default-profile.jpg" alt="">
-                            <p><a href="/">Unknown Workplace Fest</a></p>
-                        </div>
-                        <div class="post-stats">
-                            <p><img src="/images/social-media/heart.png" alt=""> 999</p>
-                            <p><img src="/images/social-media/comment.png" alt=""> 45</p>
-                        </div>
-                    </div>
-                    <div class="post">
-                        <div class="top-bar">
-                            <img src="/images/social-media/default-profile.jpg" alt="">
-                            <p><a href="/">Unknown Workplace Fest</a></p>
-                        </div>
-                        <div class="post-stats">
-                            <p><img src="/images/social-media/heart.png" alt=""> 999</p>
-                            <p><img src="/images/social-media/comment.png" alt=""> 45</p>
-                        </div>
-                    </div>
+                    <% } %>
                 </div>
             </div>
 
