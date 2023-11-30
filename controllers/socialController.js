@@ -1,9 +1,13 @@
 const model = require ('../models/social');
 const {fileUpload} = require('../middleware/fileUpload');
 
+
+
 // Index
 exports.index = (req,res) => {
-    res.render('./social_media/index');
+    model.find().then(posts=>{        
+        res.render('./social_media/index', {posts})}).catch(err=>next(err));
+    
 }
 // Create
 exports.create = (req,res,next) => {
