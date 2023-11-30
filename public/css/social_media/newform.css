@@ -1,0 +1,46 @@
+input{
+    width: 600px !important;
+}
+
+textarea{
+    width:600px !important;
+    background-color: #ECE4DF;
+    border: 0;
+    border-radius: 10px;
+}
+
+form.new-form{
+    font-size: 24px;
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 20px;
+    background-color: white;
+    width:fit-content;
+    padding:30px;
+    border-radius: 30px;
+
+    .submit-btn{
+        background-color: orangered;
+        color: white;
+        font-weight: 600;
+        padding: 10px;
+        border-radius: 10px;
+        border: 0;
+    }
+}
+
+.content-container{
+    height:100vh !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-bar{
+    width:100%;
+}
+

@@ -1,4 +1,15 @@
 <% let pageTitle="LFG Dashboard" ; %>
 <%- include('../partials/header.ejs', { pageTitle: pageTitle }) %>
+<form action = "/socialmedia/<%= post.id%>?_method=PUT" method="POST" class="new-form">
 
+    <label for="title">Title</label>
+    <input type="text" id="title" name="title" value="<%= post.title%>">
+
+    <label for="content">Content</label>
+    <textarea rows="5" id="content" name="content" class = "fixed-width"><%= post.content%></textarea>
+
+    <input type="submit" value="Submit">
+
+    <button type="submit" formmethod="POST" formaction="/socialmedia/<%=post.id%>?_method=DELETE"">Delete</button>
+</form>
 <%- include('../partials/footer.ejs')%>

@@ -17,14 +17,14 @@ router.post('/', controller.create);
 router.get('/:id', controller.showDetailed);
 
 //GET /socialmedia/:id/edit: send html form for editing
-// router.get('/:id/edit', controller.edit);
+router.get('/:id/edit', controller.edit);
 
 //PUT /socialmedia/:id: update post by ID
 router.put('/:id', controller.update);
 
 //DELETE /socialmedia/:id: deletes post by ID
-router.get('/:id', controller.delete)
+router.delete('/:id', controller.delete)
 
-router.get('/:id/edit', controller.update);
+router.get('/:id/edit', controller.edit);
 
 module.exports = router;
