@@ -6,7 +6,8 @@ const socialSchema = new Schema({
     title: {type: String},
     content: {type: String},
     //user: {type: Schema.Types.ObjectId, ref: 'User'},
-    date: {type: String}
+    //date: {type: String}
+    author: {type: String}
 },
 {timestamps: true}
 );
