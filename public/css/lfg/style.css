@@ -95,7 +95,7 @@ tr a:hover{
 #title,
 #description,
 #preferences, 
-#size {
+#maxSize {
     background: #ECE4DF;
     padding: 10px;
     border: 1px solid #ccc;

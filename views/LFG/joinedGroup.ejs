@@ -4,21 +4,36 @@
 <h1 class="group-title"><%= group.title %></h1>
 <body>
     <div class="message-container">
-        <ul class="message-list">
-            
-            <li class="message other-user-message e"><em>Username 1:</em> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </li>
-            <li class="message user-message"><strong>You:</strong> Hello, this is a user message.</li>
-            <li class="message other-user-message e"><em>Username 2:</em> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </li>
-            <li class="message user-message"><strong>You:</strong> Hello, this is a user message.</li>
-            <li class="message other-user-message e"><em>Username 1:</em> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </li>
-            <li class="message user-message"><strong>You:</strong> Hello, this is a user message.</li>
-            <li class="message other-user-message e"><em>Username 2:</em>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </li>
-        </ul>
+        <p>Dear Waypoint Community, <br><br>
 
-        <div class="message-form">
-            <input type="text" class="message-input" placeholder="Type your message...">
-            <button class="send-button">Send</button>
-        </div>
+            We're thrilled to witness the growth of diverse groups on our platform. As we embark on this collective journey, maintaining a culture of kindness, respect, and inclusivity is paramount. Let's prioritize respectful communication, embrace diversity, and ensure that Waypoint remains a welcoming space for all members. Discrimination has no place here - let's celebrate our differences and work together to create a positive and inclusive environment. <br><br>
+            
+            Each group plays a vital role in shaping Waypoint's overall experience. Define your group's purpose clearly, encourage constructive dialogue, and actively moderate to foster a positive atmosphere. Together, we can cultivate a vibrant and inclusive Waypoint community where everyone feels at home.<br><br>
+            
+            Best regards,<br>
+            Waypoint Community Manager</p>
+            <hr style="border-top: 8px double;">
+        <ul class="message-list">
+
+            <% group.messages.forEach((message) => {%>
+                <li class="message <%= String(message.userId._id) === String(messageUserId) ? 'user-message' : 'other-user-message'%>">
+                    <% if (String(message.userId._id) !== String(messageUserId)) { %>
+                        <em><%= message.userId.firstName %>:</em>
+                    <% } else { %>
+                        <strong>You:</strong>
+                    <% } %>
+                    <%= message.content %>
+                </li>
+            <%});%>
+            
+            </ul>
+
+        <form action="/lfg/<%= group._id %>/message" method="POST">
+            <div class="message-form">
+                <input type="text" class="message-input" name="content" placeholder="Type your message...">
+                <button class="send-button">Send</button>
+            </div>
+        </form>
     </div>
 </body>
 <div class="links">

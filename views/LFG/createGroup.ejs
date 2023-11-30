@@ -3,7 +3,8 @@
 <link rel="stylesheet" type="text/css" href="/css/lfg/style.css">
 <body>
     <h1 class="create-group-header">Create Group Form</h1>
-    <form action="/lfg/createGroup"  method="POST" class="form-container" >
+    <!-- <form action="/lfg/createGroup"  method="POST" class="form-container" > -->
+    <form action="/lfg"  method="POST" class="form-container" >
         <div class="input-group">
             <label for="category">Category:</label>
             <select id="category" name="category" required>
@@ -29,10 +30,10 @@
             <textarea id="preferences" name="preferences" placeholder="Preferences"  rows="5" cols="100" required minlength="10"></textarea>
         </div>
 
-        <div class="input-group">
-            <label for="size">Maximum Group Size: </label>
-            <input type="number" id="size" name="size" placeholder="#" required min="0">
-        </div>
+        <!-- <div class="input-group">
+            <label for="maxSize">Maximum Group Size: </label>
+            <input type="number" id="maxSize" name="maxSize" placeholder="#" required min="1">
+        </div> -->
 
         <button type="submit">Submit</button>
     </form>

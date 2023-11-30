@@ -11,4 +11,6 @@ router.get('/register', con.showregister);
 
 router.post('/new', con.create);
 
+router.get('/logout', con.logout);
+
 module.exports = router;

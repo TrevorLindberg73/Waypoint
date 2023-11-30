@@ -15,9 +15,15 @@
         <a href="/" id="logo"> <img src = "/images/waypoint-logo2.jpeg" alt = "banner"></a>
         <ul>
             <li><a href = "/">News</a></li>
-            <li><a href = "/socialmedia">Social Media</a></li>
-            <li><a href = "/lfg">LFG</a></li>
-            <li><a href = "/user/register">Sign Up</a></li>
-            <li><a href = "/user/login">Login</a></li>
+            <!-- <li><a href = "/socialmedia">Social Media</a></li>
+            <li><a href = "/lfg">LFG</a></li> -->
+            <% if (!user) {%>
+                <li><a href = "/user/register">Sign Up</a></li>
+                <li><a href = "/user/login">Login</a></li>
+            <% } else { %>
+                <li><a href = "/socialmedia">Social Media</a></li>
+                <li><a href = "/lfg">LFG</a></li>
+                <li><a href="/user/logout">Logout</a></li>
+            <% } %>
         </ul>
     </nav>

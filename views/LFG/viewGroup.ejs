@@ -5,17 +5,19 @@
     <div class="group-details">
         <div class="title-buttons">
             <h1 class="group-title"><%= group.title %></h1>
+            <form>
                 <div class="group-buttons">
-                    <button class="edit-button" type = "submit" formmethod="GET" formaction = "/"><i class="fas fa-edit"></i></button>
-                    <button class="delete-button" type = "submit" formmethod="POST" formaction = "/" ><i class="fas fa-trash"></i></button>
+                    <button class="edit-button" type = "submit" formmethod="GET" formaction = "/lfg/<%= group._id%>/edit"><i class="fas fa-edit"></i></button>
+                    <button class="delete-button" type = "submit" formmethod="POST" formaction = "/lfg/<%= group._id%>?_method=DELETE" ><i class="fas fa-trash"></i></button>
                 </div>
+            </form>
         </div>
 
         <div class="details">
             <p><strong>Group Category:</strong> <%= group.category %> </p>
             <p><strong>Created By:</strong> TBD</p>
-            <p><strong>Description:</strong> <%= group.description %> </p>
-            <p><strong>Group Size:</strong> TBD / <%= group.size %> </p><br>
+            <p><strong>Description:</strong> <%= group.description %> </p> <br>
+            <!-- <p><strong>Group Size:</strong> <%= group.size %> / <%= group.maxSize %> </p><br> -->
             <p><strong>Preferences: </strong> <%= group.preferences %>  </p>
         </div>
     </div>
