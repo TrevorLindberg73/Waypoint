@@ -1,0 +1,127 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgb(223, 223, 223);
+    min-height: 500px;
+    gap: 30px;
+    box-shadow: 0px 0px 0px;
+}
+
+.profile-container{
+    display: flex;
+    background-color: white;
+    max-height: 250px;
+    width: 100%;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+.personalinfo-container{
+    display: flex;
+    max-height: 250px;
+    width: 100%;
+}
+
+.postheader{
+    display: flex;
+    background-color: white;
+    max-height: 50px;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.profile-picture {
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border-color: orangered;
+    border-style: inset;
+    text-align: left;
+}
+
+.likes-container {
+    width: 30%;
+    height:min-content;
+    text-align: center;
+}
+
+.centered-text{
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    padding: 10px;
+}
+
+.post-container{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.post-container .top-bar{
+    display: flex;
+    gap:20px;
+    align-items: center;
+}
+
+.post-container .post-stats{
+    display: flex;
+    justify-content: space-between;
+}
+
+.post-stats .left{
+    display: flex;
+    gap:10px;
+}
+
+.right-container .post img{
+    width:40px;
+    height:40px;
+    border-radius: 50%;
+}
+
+.right-container .top-bar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.right-container .top-bar p{
+    margin-bottom: 0px !important;
+}
+
+.right-container .post{
+    margin:5px;
+}
+
+.right-container .post{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+
+.right-container .post-stats{
+    display: flex;
+    gap:10px;
+}
+
+.right-container .post-stats img{
+    height:25px;
+    width: 25px;
+}
+
+img.comment, img.heart{
+    height:25px;
+    width: 25px;
+}
+
+.post-container .profile-picture {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
