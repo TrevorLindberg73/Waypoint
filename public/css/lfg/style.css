@@ -11,11 +11,11 @@ body {
     box-shadow: 0px 0px 0px;
 }
  
-.header {
+/* .header {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 18%;
+    
     margin-left: 130px;
     padding: 5px;
     background-color: #fff;
@@ -32,8 +32,42 @@ body {
 
 .header a:hover{
     color: orangered;
+} */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin-left: 130px;
+    padding: 5px;
+    
+    border-radius: 10px;
+    margin-bottom: 10px;
 }
- 
+
+.create-group-button {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 5px;
+    
+}
+.create-group-button a {
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+
+.create-group-button a:hover {
+    color: orangered;
+}
+
+.user-info {
+    text-align: right;
+    margin-right: 10px;
+    font-size: 20px; 
+}
+
 h1 {
     margin: 0;
     text-align: center;

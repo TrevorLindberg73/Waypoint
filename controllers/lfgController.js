@@ -1,15 +1,24 @@
 const model = require('../models/group');
+const User = require('../models/user'); 
 
+// exports.dashboard = (req, res, next) => {
+//     model.find()
+//         .then((groups) => {
+//             res.render('./LFG/LFG_dashboard', {groups});
+//         })
+//         .catch(err => next(err));
+// }
 exports.dashboard = (req, res, next) => {
-    model.find()
-        .then((groups) => {
-            res.render('./LFG/LFG_dashboard', {groups});
-            // let categories = groups.map((group) => group.category);
-            // let sortCategories = [...new Set(categories)];
-            // res.render('./LFG/LFG_dashboard', { groups, categories: sortCategories });
+    let userId = req.session.user;
+
+    // Use Promise.all to fetch both user and groups in parallel
+    Promise.all([User.findById(userId), model.find()])
+        .then(([user, groups]) => {
+            res.render('./LFG/LFG_dashboard', { user, groups });
         })
         .catch(err => next(err));
-}
+};
+
 
 
 exports.new = (req,res) => {
@@ -18,6 +27,7 @@ exports.new = (req,res) => {
 
 exports.create = (req, res, next) => {
     let group = new model(req.body);//create a new event document
+    group.hostName = req.session.user;
     // group.size = 1;
     console.log(req.body);
     group.save()//insert the document to the database
@@ -38,10 +48,11 @@ exports.view = (req, res, next)=>{
         err.status = 400;
         return next(err);
     }
-    model.findById(id)
+    model.findById(id).populate('hostName', 'firstName lastName')  // Populate the 'hostName' reference field
     .lean()
     .then(group=>{
         if(group){
+            console.log(group);
             res.render('./LFG/viewGroup', {group});
         } else {
             let err = new Error('Cannot find group with id ' + id);

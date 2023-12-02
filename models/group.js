@@ -16,6 +16,9 @@ const groupSchema = new Schema({
         type: String,
         required: [true, 'title is required']
     },
+    hostName: {
+        type: Schema.Types.ObjectId, ref:'User'
+    },
     description: {
         type: String,
         required: [true, 'description is required'],
