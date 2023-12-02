@@ -151,7 +151,19 @@ footer p {
 }
 
   
+/*error*/
+.introduction{
+  justify-content: center;
+  align-items: center;
+  margin: 270px 20px;
+}
 
+.introduction p {
+  font-size: 20px; 
+  margin:auto 100px;
+  line-height: 32px; 
+  color:black;
+}
 
 /*login page*/
 .page-container {
