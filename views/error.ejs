@@ -1,0 +1,9 @@
+<% let pageTitle = "Error"; %>
+<%- include('./partials/header.ejs', { pageTitle: pageTitle }) %>
+    <main>        
+        <div class="introduction">
+            <h1><%= error.status%> Error</h1>
+            <p><%= error.message%></p>
+        </div>
+    </main>
+    <%- include('./partials/footer.ejs')%>

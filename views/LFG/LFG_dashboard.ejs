@@ -3,10 +3,19 @@
     <link rel="stylesheet" type="text/css" href="/css/lfg/style.css">
 <body>
         <div class="container">
-            <h1>Looking For Group Dashboard</h1>
-            <div class="header">
+            <h1> Looking For Group Dashboard</h1>
+            <!-- <div class="header">
             <a href="/lfg/createGroup">Create Group</a>
+            </div> -->
+            <div class="header">
+                <div class="create-group-button">
+                    <a href="/lfg/createGroup">Create Group</a>
+                </div>
+                <div class="user-info">
+                    Welcome, <%= user.firstName %> <%= user.lastName %>
+                </div>
             </div>
+            
         <% if (groups.length) { %>
             <% let id = {}; %>
 

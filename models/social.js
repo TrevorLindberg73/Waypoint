@@ -5,7 +5,7 @@ const { DateTime } = require('luxon');
 const socialSchema = new Schema({
     title: {type: String},
     content: {type: String},
-    //user: {type: Schema.Types.ObjectId, ref: 'User'},
+    user: {type: Schema.Types.ObjectId, ref: 'User'},
     //date: {type: String}
     author: {type: String}
 },

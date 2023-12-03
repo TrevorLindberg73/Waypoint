@@ -15,7 +15,7 @@ exports.showregister = (req, res, next) => {
 // GET /user/profile: Render the profile page of a user
 exports.profile = (req, res, next)=>{
     let id = req.session.user;
-    Promise.all([model.findById(id), socials.find({author: id})])
+    Promise.all([model.findById(id), socials.find({user: id})])
     .then(results =>{
         const [user, posts] = results;
         res.render('./user/profile', {user, posts})
