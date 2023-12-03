@@ -12,9 +12,8 @@ exports.index = (req,res) => {
 // Create
 exports.create = (req,res,next) => {
     let post = new model(req.body);
-    //let user = new User('User', 'User', 'email', 'password');
-
-    //post.user = user;
+    
+    post.user = req.session.user;
     post.save()
     .then((post)=>res.redirect('/socialmedia'))
     .catch(err=>{
