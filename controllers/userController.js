@@ -1,5 +1,6 @@
 const user = require('../models/user');
 const model = require('../models/user');
+//const social = require('../models/social');
 
 // GET /user/login: Render the login page
 exports.showlog = (req, res, next) => {
