@@ -1,6 +1,7 @@
 const user = require('../models/user');
 const model = require('../models/user');
 const socials = require('../models/social');
+const socials = require('../models/social');
 
 // GET /user/login: Render the login page
 exports.showlog = (req, res, next) => {
@@ -15,7 +16,7 @@ exports.showregister = (req, res, next) => {
 // GET /user/profile: Render the profile page of a user
 exports.profile = (req, res, next)=>{
     let id = req.session.user;
-    Promise.all([model.findById(id), socials.find({author: "Reid Bost"})])
+    Promise.all([model.findById(id), socials.find({author: id})])
     .then(results =>{
         const [user, posts] = results;
         res.render('./user/profile', {user, posts})
