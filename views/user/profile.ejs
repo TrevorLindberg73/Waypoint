@@ -1,0 +1,120 @@
+<% let pageTitle = "Profile"; %>
+    <%- include('../partials/header.ejs', { pageTitle: pageTitle }) %>
+        
+        <link rel="stylesheet" type="text/css" href="/css/profile/style.css">
+        <title>Profile</title>
+
+        <div class="container">
+            <div class="profile-container">
+                <div class="personalinfo-container">
+                    <img class="profile-picture" src="/images/social-media/default-profile.jpg" alt="">
+                    <div class="centered-text" style="padding-left: 100px;">
+                        <h1 style="transform: translateY(100%); font-size: 50px;"><%=user.firstName%> <%=user.lastName%></h1>
+                    </div>
+                </div>
+                <div class="likes-container" style="transform: translateY(50%);">
+                    <h1>Likes</h1>
+                    <p>999 <img src="/images/social-media/heart.png" alt="" width="40" height="40"></p>
+                </div>
+            </div>
+            <div>
+                <%if(posts.length) {%>
+                    <div class="postheader">
+                        <h1 class="centered-text" style="padding-top: 0px;">Posts</h1>
+                    </div>
+                    <% posts.forEach((post) => {%>
+                        <div class="post-container">
+                            <div class="top-bar">
+                                <img src="/images/social-media/default-profile.jpg" alt="" class="profile-picture">
+                                <div class="post-info">
+                                    <h4><%=post.author%></h4>
+                                    <p><%=post.createdAt%></p>
+                                </div>
+                            </div>
+                            <div class="post-main">
+                                <div class="post-title">
+                                    <h4><%=post.title%></h4>
+                                </div>
+                                <div class="post-content">
+                                    <p><%=post.content%></p>
+                                </div>
+                                <div class="post-stats">
+                                    <div class="left">
+                                        <p><img src="/images/social-media/heart.png" alt="" class="heart"> 999</p>
+                                        <a href="">Comment <img src="/images/social-media/comment.png" alt=""
+                                            class="comment"></a>
+                                    </div>
+                                    <div class="right">
+                                        <p>views: 999</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <%});%>
+                <%} else {%>
+                    <div class="postheader">
+                        <h1 class="centered-text" style="padding-top: 0px;">No Posts Yet</h1>
+                    </div>
+                <%}%>
+            </div>
+            <!-- Start of First Post
+            <div class="post-container">
+                <div class="top-bar">
+                    <img src="/images/derrickLewis.jpg" alt="" class="profile-picture">
+                    <div class="post-info">
+                        <h4>John Smith</h4>
+                        <p>November 2, 2023 9:34PM</p>
+                    </div>
+                </div>
+                <div class="post-main">
+                    <div class="post-title">
+                        <h4>Unknown Workplace Fest 2023 London</h4>
+                    </div>
+                    <div class="post-content">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste vel optio quis aut
+                            consequuntur et, placeat dicta beatae culpa unde voluptates expedita natus sed saepe ea
+                            quibusdam incidunt asperiores ducimus.</p>
+                    </div>
+                    <div class="post-stats">
+                        <div class="left">
+                            <p><img src="/images/social-media/heart.png" alt="" class="heart"> 999</p>
+                            <a href="">Comment <img src="/images/social-media/comment.png" alt="" class="comment"></a>
+                        </div>
+                        <div class="right">
+                            <p>views:  249</p>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <!-- End of First Post -->
+            <!-- <div class="post-container">
+                <div class="top-bar">
+                    <img src="/images/derrickLewis.jpg" alt="" class="profile-picture">
+                    <div class="post-info">
+                        <h4>John Smith</h4>
+                        <p>November 2, 2023 9:34PM</p>
+                    </div>
+                </div>
+                <div class="post-main">
+                    <div class="post-title">
+                        <h4>Unknown Workplace Fest 2023 London</h4>
+                    </div>
+                    <div class="post-content">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste vel optio quis aut
+                            consequuntur et, placeat dicta beatae culpa unde voluptates expedita natus sed saepe ea
+                            quibusdam incidunt asperiores ducimus.</p>
+                    </div>
+                    <div class="post-stats">
+                        <div class="left">
+                            <p><img src="/images/social-media/heart.png" alt="" class="heart"> 999</p>
+                            <a href="">Comment <img src="/images/social-media/comment.png" alt="" class="comment"></a>
+                        </div>
+                        <div class="right">
+                            <p>views:  249</p>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+
+        <%- include('../partials/footer.ejs')%>

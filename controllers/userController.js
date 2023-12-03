@@ -1,5 +1,6 @@
 const user = require('../models/user');
 const model = require('../models/user');
+const socials = require('../models/social');
 
 // GET /user/login: Render the login page
 exports.showlog = (req, res, next) => {
@@ -10,6 +11,17 @@ exports.showlog = (req, res, next) => {
 exports.showregister = (req, res, next) => {
     res.render('./user/register');
 }
+
+// GET /user/profile: Render the profile page of a user
+exports.profile = (req, res, next)=>{
+    let id = req.session.user;
+    Promise.all([model.findById(id), socials.find({author: "Reid Bost"})])
+    .then(results =>{
+        const [user, posts] = results;
+        res.render('./user/profile', {user, posts})
+    })
+    .catch(err=>next(err));
+};
 
 exports.loggedIn = (req, res, next) => {
     let email = req.body.email;
