@@ -29,3 +29,21 @@ exports.isHostName = (req, res, next)=>{
         })
         .catch(err=>next(err));
 };
+
+// User has not logged in
+exports.isGuest = (req, res, next) => {
+    if (!req.session.user) next();
+    else {
+        //req.flash('error', 'You are already logged in');
+        res.redirect('/socialmedia/index');
+    }
+};
+
+// User has logged in
+exports.isLoggedIn = (req, res, next) => {
+    if (req.session.user) next();
+    else {
+        //req.flash('error', 'You have not logged in yet');
+        res.redirect('/user/login');
+    }
+};
