@@ -2,7 +2,7 @@ const Group = require('../models/group');
 const User = require('../models/user'); 
 
 //check if user is hostname of the story
-exports.isHostName = (req, res, next)=>{
+exports.isHost = (req, res, next)=>{
         let id = req.params.id;
 
         if(!id.match(/^[0-9a-fA-F]{24}$/)){

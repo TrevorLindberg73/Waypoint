@@ -1,6 +1,6 @@
 const express = require('express');
 const lfgController = require('../controllers/lfgController');
-const {isHostName, isLoggedIn} = require('../middleware/auth');
+const {isHost, isLoggedIn} = require('../middleware/auth');
 //const {fileUpload} = require ('../middleware/fileUpload');
 
 const router = express.Router();
@@ -18,13 +18,13 @@ router.post('/', isLoggedIn, lfgController.create);
 router.get('/:id', isLoggedIn, lfgController.view);
 
 //GET /events/:id/edit: send html form for editing an existing group
-router.get('/:id/edit', isLoggedIn, isHostName,  lfgController.edit);
+router.get('/:id/edit', isLoggedIn, isHost,  lfgController.edit);
 
 //PUT /events/:id: update the event identified by id
-router.put('/:id', isLoggedIn, isHostName,  lfgController.update);
+router.put('/:id', isLoggedIn, isHost,  lfgController.update);
 
 //DELETE /lfg/:id: delete the group identified by id
-router.delete('/:id', isLoggedIn, isHostName,  lfgController.delete);
+router.delete('/:id', isLoggedIn, isHost,  lfgController.delete);
 
 // GET /lfg/:id/joinedGroup: Render details of the specific lfg chat for joining, identified by the provided ID
 router.get('/:id/joinedGroup', isLoggedIn, lfgController.joinedGroup);
