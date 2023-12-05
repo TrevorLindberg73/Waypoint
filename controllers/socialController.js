@@ -58,7 +58,7 @@ exports.update = (req,res,next) =>{
     let id = req.params.id;
 
     model.findByIdAndUpdate(id, post, {useFindAndModify: false, runValidators: true})
-    .then(post=>{res.redirect('/social_media/'+id)})
+    .then(post=>{res.redirect('/socialmedia/'+id)})
     .catch(err=>{
         if(err.name === 'ValidationError') {
             err.status = 400;
@@ -71,6 +71,6 @@ exports.delete = (req, res, next) =>{
     let id = req.params.id;
     
     model.findByIdAndDelete(id, {useFindAndModify: false})
-    .then(post=>{res.redirect('/social_media')})
+    .then(post=>{res.redirect('/socialmedia')})
     .catch(err=>next(err));
 }
