@@ -1,6 +1,6 @@
 <% let pageTitle = "Profile"; %>
     <%- include('../partials/header.ejs', { pageTitle: pageTitle }) %>
-        
+    <div class="footerFix">
         <link rel="stylesheet" type="text/css" href="/css/profile/style.css">
         <title>Profile</title>
 
@@ -43,6 +43,10 @@
                                         <p><img src="/images/social-media/heart.png" alt="" class="heart"> 999</p>
                                         <a href="">Comment <img src="/images/social-media/comment.png" alt=""
                                             class="comment"></a>
+                                        <form>
+                                            <button class="edit-button" type="submit" formmethod="GET" formaction="/socialmedia/<%= post._id %>/edit"><i class="fas fa-edit"></i></button>
+                                            <button class="delete-button" type="submit" formmethod="POST" formaction="/socialmedia/<%= post._id %>?_method=DELETE"><i class="fas fa-trash"></i></button>
+                                        </form>
                                     </div>
                                     <div class="right">
                                         <p>views: 999</p>
@@ -58,5 +62,5 @@
                 <%}%>
             </div>
         </div>
-
+    </div>
         <%- include('../partials/footer.ejs')%>

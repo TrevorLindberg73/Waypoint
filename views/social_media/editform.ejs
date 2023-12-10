@@ -1,15 +1,22 @@
 <% let pageTitle="LFG Dashboard" ; %>
 <%- include('../partials/header.ejs', { pageTitle: pageTitle }) %>
-<form action = "/socialmedia/<%= post.id%>?_method=PUT" method="POST" class="new-form">
+<link rel="stylesheet" type="text/css" href="/css/social_media/newform.css">
+<div class="content-container">
+
+<form action = "/socialmedia/<%= post._id%>?_method=PUT" method="POST" class="new-form">
 
     <label for="title">Title</label>
     <input type="text" id="title" name="title" value="<%= post.title%>">
+
+    <label for="author">Author</label>
+    <input type="text" id="author" name="author" value="<%= post.author%>">
 
     <label for="content">Content</label>
     <textarea rows="5" id="content" name="content" class = "fixed-width"><%= post.content%></textarea>
 
     <input type="submit" value="Submit">
 
-    <button type="submit" formmethod="POST" formaction="/socialmedia/<%=post.id%>?_method=DELETE"">Delete</button>
 </form>
+</div>
+
 <%- include('../partials/footer.ejs')%>

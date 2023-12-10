@@ -7,17 +7,17 @@
                 <div class="left-container">
                     <div class="bio-container">
                         <img class="profile-picture" src="/images/derrickLewis.jpg" alt="">
-                        <h4>John Smith</h4>
-                        <p>Software Developer at Unknown</p>
+                        <h4><%=user.firstName%> <%=user.lastName%></h4>
+                        <p><a href = "/user/profile">View Your Created Post</a></p>
+                        <!-- <p>Software Developer at Unknown</p> -->
                     </div>
-                    <div class="likes-container">
+                    <!-- <div class="likes-container">
                         <h4>Profile Likes</h2>
                             <p>999</p>
                     </div>
                     <div class="recent-post">
                         <h4>Unknown Workplace Fest</h4>
-                        <!--<p><a href="/socialmedia/new">View Post</a></p> -->
-                    </div>
+                    </div> -->
                 </div>
                 <div class="middle-container">
                     <button class="new-post"><a class="new-form-link" href="/socialmedia/new">New Post</a></button>
@@ -55,10 +55,9 @@
                     <!--END FOR EACH POST-->
                 </div>
 
-
-                <div class="right-container">
+                <!--FOR EACH POST-->
+                <!-- <div class="right-container">
                     <h3>Top Post</h3>
-                    <!--FOR EACH POST-->
                     <% for (let i = 0; i < Math.min(3, posts.length); i++) { %>
                     <div class="post">
                         <div class="top-bar">
@@ -71,7 +70,7 @@
                         </div>
                     </div>
                     <% } %>
-                </div>
+                </div> -->
             </div>
 
 
