@@ -28,7 +28,8 @@
                             <img src="/images/social-media/default-profile.jpg" alt="" class="profile-picture">
                             <div class="post-info">
                                 <h4><%=post.author%></h4>
-                                <p><%=post.createdAt%></p>
+                                <!-- <p><%=post.createdAt%></p> -->
+                                <p>Posted on:<%= new Date(post.createdAt).toLocaleDateString('en-US', { timeZone: 'America/New_York' }) + ' ' + new Date(post.createdAt).toLocaleTimeString('en-US', { timeZone: 'America/New_York', hour12: true, hour: 'numeric', minute: 'numeric' }) %></p>
                             </div>
                         </div>
                         <div class="post-main">
