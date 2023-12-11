@@ -27,9 +27,6 @@ exports.loggedIn = (req, res, next) => {
     let email = req.body.email;
     let password = req.body.password;
 
-    console.log(email);
-    console.log(password);
-
     model.findOne({email: email})
     .then(user => {
         if (user) {

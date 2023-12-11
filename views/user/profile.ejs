@@ -1,6 +1,8 @@
 <% let pageTitle = "Profile"; %>
     <%- include('../partials/header.ejs', { pageTitle: pageTitle }) %>
-        
+    <%let totalLikes = 0;%>
+    <% posts.forEach((post) => {totalLikes += post.likes.length;});%>
+    <div class="footerFix">
         <link rel="stylesheet" type="text/css" href="/css/profile/style.css">
         <title>Profile</title>
 
@@ -14,7 +16,7 @@
                 </div>
                 <div class="likes-container" style="transform: translateY(25%) translateX(15%);">
                     <h1>Likes</h1>
-                    <p>999 <img src="/images/social-media/heart.png" alt="" width="40" height="40"></p>
+                    <p><%=totalLikes%> <img src="/images/social-media/heart.png" alt="" width="40" height="40"></p>
                 </div>
             </div>
             <div>
@@ -28,24 +30,24 @@
                                 <img src="/images/social-media/default-profile.jpg" alt="" class="profile-picture">
                                 <div class="post-info">
                                     <h4><%=post.author%></h4>
-                                    <p><%=post.createdAt%></p>
+                                    <!-- <p><%=post.createdAt%></p> -->
+                                    <p>Posted on:<%= new Date(post.createdAt).toLocaleDateString('en-US', { timeZone: 'America/New_York' }) + ' ' + new Date(post.createdAt).toLocaleTimeString('en-US', { timeZone: 'America/New_York', hour12: true, hour: 'numeric', minute: 'numeric' }) %></p>
                                 </div>
                             </div>
                             <div class="post-main">
                                 <div class="post-title">
-                                    <h4><%=post.title%></h4>
+                                    <h4><a href="/socialmedia/<%=post.id%>/post_detailed"><%=post.title%></a></h4>
                                 </div>
                                 <div class="post-content">
                                     <p><%=post.content%></p>
                                 </div>
                                 <div class="post-stats">
                                     <div class="left">
-                                        <p><img src="/images/social-media/heart.png" alt="" class="heart"> 999</p>
-                                        <a href="">Comment <img src="/images/social-media/comment.png" alt=""
-                                            class="comment"></a>
-                                    </div>
-                                    <div class="right">
-                                        <p>views: 999</p>
+                                        <p><img src="/images/social-media/heart.png" alt="" class="heart"> <%=post.likes.length%></p>
+                                        <form>
+                                            <button class="edit-button" type="submit" formmethod="GET" formaction="/socialmedia/<%= post._id %>/edit"><i class="fas fa-edit"></i></button>
+                                            <button class="delete-button" type="submit" formmethod="POST" formaction="/socialmedia/<%= post._id %>?_method=DELETE"><i class="fas fa-trash"></i></button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -58,5 +60,5 @@
                 <%}%>
             </div>
         </div>
-
+    </div>
         <%- include('../partials/footer.ejs')%>
