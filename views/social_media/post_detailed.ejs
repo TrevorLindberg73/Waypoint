@@ -1,10 +1,47 @@
-<% let pageTitle="LFG Dashboard" ; %>
-<%- include('../partials/header.ejs', { pageTitle: pageTitle }) %>
-<p>Title: <%= post.title%></p>
-<p>Content: <%= post.content%></p>
-<p>ID: <%= post.id%></p>
-<form>
-    <button type="submit" formmethod="GET" formaction="/socialmedia/<%=post.id%>/edit">Edit</button>
-</form>
+<!-- post_detailed.ejs -->
 
-<%- include('../partials/footer.ejs')%>
+<% let pageTitle = "Social Media Post"; %>
+<%- include('../partials/header.ejs', { pageTitle: pageTitle }) %>
+<div class="detailed-post-container">
+    <link rel="stylesheet" type="text/css" href="/css/social_media/post_detailed.css">
+    <div class="top-bar">
+        <img src="/images/social-media/default-profile.jpg" alt="" class="profile-picture">
+        <div class="post-info">
+            <h4><%= post.author %></h4>
+            <p>Posted on: <%= new Date(post.createdAt).toLocaleDateString('en-US', { timeZone: 'America/New_York' }) + ' ' + new Date(post.createdAt).toLocaleTimeString('en-US', { timeZone: 'America/New_York', hour12: true, hour: 'numeric', minute: 'numeric' }) %></p>
+        </div>
+    </div>
+    <div class="detailed-post-main">
+        <div class="post-title">
+            <h4><%= post.title %></h4>
+        </div>
+        <div class="post-content">
+            <p><%= post.content %></p>
+        </div>
+        <div class="post-stats">
+            <!-- Comment section -->
+            <div class="comment-section">
+                <form action="/socialmedia/<%= post._id %>/comment" method="POST">
+                    <textarea class="comment-field" id="commentField" name="text" placeholder="Add your comment..."></textarea>
+                    <button class="comment-btn" type="submit">Comment</button>
+                </form>
+                <form action="/socialmedia/<%= post._id %>/like" method="POST">
+                        <button type="submit" class="like-btn" style="height:50px !important; width: auto; margin: 10px; border-radius: 10px; margin-left: 0; padding: 10px; background-color: white;">
+                        <% if (post.likes.includes(user._id)) { %>
+                            <img src="/images/social-media/heart-filled.png" alt="" class="heart-filled" style="height:30px !important; width: auto;">
+                        <% } else { %>
+                            <img src="/images/social-media/heart.png" alt="" class="heart" style="height:30px !important; width: auto;">
+                        <% } %>
+                        <%= post.likes.length %>
+                    </button>
+                </form>
+                <div class="existing-comments">
+                    <% post.comments.forEach(comment => { %>
+                        <p><strong><%= comment.firstName %> <%= comment.lastName %>:</strong> <%= comment.text %></p>
+                    <% }); %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include('../partials/footer.ejs') %>

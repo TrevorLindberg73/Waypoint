@@ -37,18 +37,21 @@ exports.showNewPost = (req,res,next) =>{
 }
 
 // Shows a certain post
-exports.showDetailed = (req, res) =>{
+exports.showDetailed = (req, res, next) => {
     let id = req.params.id;
 
     model.findById(id)
-    .then(post=>{if (post) {
-            return res.render('./social_media/post_detailed', {post});
-        } else {
-            let err = new Error('Cannot find a event with id ' + id);
-            err.status = 404;
-            next(err);
-    }})
-        .catch(err=>next(err));
+        .populate('comments.user', 'username')  // Populate the 'user' field within the 'comments' array
+        .then(post => {
+            if (post) {
+                return res.render('./social_media/post_detailed', { post });
+            } else {
+                let err = new Error('Cannot find a post with id ' + id);
+                err.status = 404;
+                next(err);
+            }
+        })
+        .catch(err => next(err));
 };
 
 // exports.edit = (req,res,next) =>{
@@ -132,3 +135,58 @@ exports.delete = (req, res, next) =>{
     .then(post=>{res.redirect('/user/profile')})
     .catch(err=>next(err));
 }
+
+exports.addComment = async (req, res, next) => {
+    const postId = req.params.id;
+    const { text } = req.body;
+    const userId = req.session.user;
+
+    try {
+        const post = await model.findById(postId).populate('comments.user');
+        const user = await User.findById(userId); // Fetch the user details
+        console.log(user);
+        const newComment = {
+            user: {
+                _id: user._id,
+            },
+            text,
+            firstName: user.firstName,
+            lastName: user.lastName,
+        };
+
+        post.comments.push(newComment);
+        const updatedPost = await post.save();
+
+        // Assuming you want to send the updated post with comments back to the client
+        res.redirect(`/socialmedia/${postId}`); // Redirect to the detailed post page
+    } catch (err) {
+        next(err);
+    }
+};
+
+exports.toggleLike = async (req, res, next) => {
+    const postId = req.params.id;
+    const userId = req.session.user;
+
+    try {
+        const post = await model.findById(postId);
+
+        // Check if the user already liked the post
+        const likedIndex = post.likes.indexOf(userId);
+
+        if (likedIndex === -1) {
+            // If not liked, add user to likes
+            post.likes.push(userId);
+        } else {
+            // If already liked, remove user from likes
+            post.likes.splice(likedIndex, 1);
+        }
+
+        const updatedPost = await post.save();
+
+        // Redirect to the detailed post page
+        res.redirect(`/socialmedia/${postId}`);
+    } catch (err) {
+        next(err);
+    }
+};
