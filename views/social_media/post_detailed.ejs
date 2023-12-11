@@ -34,6 +34,11 @@
                         <% } %>
                         <%= post.likes.length %>
                     </button>
+                    
+                </form>
+                <form>
+                    <button class="edit-button" type="submit" formmethod="GET" formaction="/socialmedia/<%= post._id %>/edit"><i class="fas fa-edit"></i></button>
+                    <button class="delete-button" type="submit" formmethod="POST" formaction="/socialmedia/<%= post._id %>?_method=DELETE"><i class="fas fa-trash"></i></button>
                 </form>
                 <div class="existing-comments">
                     <% post.comments.forEach(comment => { %>

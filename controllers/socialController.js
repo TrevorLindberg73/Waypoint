@@ -17,19 +17,31 @@ exports.index = (req,res) => {
     .catch(err => next(err));
 }
 // Create
-exports.create = (req,res,next) => {
-    let post = new model(req.body);
-    
-    post.user = req.session.user;
-    post.save()
-    .then((post)=>res.redirect('/socialmedia'))
-    .catch(err=>{
-        if(err.name === 'ValidationError') {
-            err.status = 400;
+exports.create = async (req, res, next) => {
+    const { title, content } = req.body;
+    const userId = req.session.user;
+
+    try {
+        const user = await User.findById(userId);
+
+        if (!user) {
+            // Handle the case where the user is not found
+            return res.status(404).send('User not found');
         }
+
+        const post = new model({
+            title,
+            content,
+            user: userId,
+            author: `${user.firstName} ${user.lastName}`, // Combine firstName and lastName
+        });
+
+        await post.save();
+        res.redirect('/socialmedia');
+    } catch (err) {
         next(err);
-    });
-}
+    }
+};
 
 // Show create form
 exports.showNewPost = (req,res,next) =>{
@@ -132,7 +144,7 @@ exports.delete = (req, res, next) =>{
     let id = req.params.id;
     
     model.findByIdAndDelete(id, {useFindAndModify: false})
-    .then(post=>{res.redirect('/user/profile')})
+    .then(post=>{res.redirect('/socialmedia')})
     .catch(err=>next(err));
 }
 
