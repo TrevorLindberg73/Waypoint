@@ -8,6 +8,7 @@ const {fileUpload} = require('../middleware/fileUpload');
 //         res.render('./social_media/index', {posts})}).catch(err=>next(err));
 // }
 
+// Shows the main social page
 exports.index = (req,res) => {
     let id = req.session.user;
     Promise.all([User.findById(id), model.find()])
@@ -74,6 +75,7 @@ exports.showDetailed = (req, res, next) => {
 //     .catch(err=>next(err));
 // }
 
+// Takes user to the edit form
 exports.edit = (req, res, next) => {
     let id = req.params.id;
     let userId = req.session.user;
@@ -117,6 +119,7 @@ exports.edit = (req, res, next) => {
 //     });
 // }
 
+// Updates the post with users new info
 exports.update = (req,res,next) =>{
 
     let post = req.body;
@@ -140,6 +143,7 @@ exports.update = (req,res,next) =>{
 //     .catch(err=>next(err));
 // }
 
+// Deletes a post
 exports.delete = (req, res, next) =>{
     let id = req.params.id;
     
@@ -148,6 +152,7 @@ exports.delete = (req, res, next) =>{
     .catch(err=>next(err));
 }
 
+// Allows comments to be added to posts
 exports.addComment = async (req, res, next) => {
     const postId = req.params.id;
     const { text } = req.body;
@@ -176,6 +181,7 @@ exports.addComment = async (req, res, next) => {
     }
 };
 
+// Tracks how many likes a post has
 exports.toggleLike = async (req, res, next) => {
     const postId = req.params.id;
     const userId = req.session.user;

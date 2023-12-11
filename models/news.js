@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+// Schema for news
 const newsSchema = new Schema({
     title: {type: String, required: true},
     category: {type: String, required: true},

@@ -1,11 +1,13 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+// Schema for messages
 const messageSchema = new Schema({
     userId: {type: Schema.Types.ObjectId, ref: 'User'},
     content: {type: String}
 });
 
+// Schema for groups
 const groupSchema = new Schema({
     category: {
         type: String,

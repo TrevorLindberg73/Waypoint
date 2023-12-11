@@ -25,10 +25,13 @@ router.put('/:id', controller.update);
 //DELETE /socialmedia/:id: deletes post by ID
 router.delete('/:id', controller.delete)
 
+// GET /:id/post_detailed: Shows the details of a post
 router.get('/:id/post_detailed', controller.showDetailed);
 
+// POST /:id/comment: Adds a comment to a post
 router.post('/:id/comment', controller.addComment);
 
+// POST /:id/like: Adds a like to the post
 router.post('/:id/like', controller.toggleLike);
 
 module.exports = router;
