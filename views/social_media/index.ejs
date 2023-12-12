@@ -6,7 +6,7 @@
             <div class="container">
                 <div class="left-container">
                     <div class="bio-container">
-                        <img class="profile-picture" src="/images/social-media/default-profile.jpg" alt="">
+                        <img class="profile-picture" src="<%= user.profilePictureUrl ? user.profilePictureUrl : '/images/social-media/default-profile.jpg' %>" alt="">
                         <h4><%=user.firstName%> <%=user.lastName%></h4>
                         <p><a href = "/user/profile">View Your Created Post</a></p>
                         <!-- <p>Software Developer at Unknown</p> -->
@@ -20,16 +20,15 @@
                     </div> -->
                 </div>
                 <div class="middle-container">
-                    <button class="new-post"><a class="new-form-link" href="/socialmedia/new">New Post</a></button>
                     <!--FOR EACH POST-->
                     <% posts.forEach(post=> { %>
                     <div class="post-container">
                         <div class="top-bar">
-                            <img src="/images/social-media/default-profile.jpg" alt="" class="profile-picture">
+                            <% let profilePicUrl = post.user && post.user.profilePictureUrl ? post.user.profilePictureUrl : '/images/social-media/default-profile.jpg'; %>
+                            <img src="<%= profilePicUrl %>" alt="" class="profile-picture">
                             <div class="post-info">
-                                <h4><%=post.author%></h4>
-                                <!-- <p><%=post.createdAt%></p> -->
-                                <p>Posted on:<%= new Date(post.createdAt).toLocaleDateString('en-US', { timeZone: 'America/New_York' }) + ' ' + new Date(post.createdAt).toLocaleTimeString('en-US', { timeZone: 'America/New_York', hour12: true, hour: 'numeric', minute: 'numeric' }) %></p>
+                                <h4><%= post.author %></h4>
+                                <p>Posted on: <%= new Date(post.createdAt).toLocaleDateString('en-US', { timeZone: 'America/New_York' }) + ' ' + new Date(post.createdAt).toLocaleTimeString('en-US', { timeZone: 'America/New_York', hour12: true, hour: 'numeric', minute: 'numeric' }) %></p>
                             </div>
                         </div>
                         <div class="post-main">
@@ -50,6 +49,9 @@
 
                     <% }); %>
                     <!--END FOR EACH POST-->
+                </div>
+                <div class="right-container">
+                    <button class="new-post"><a class="new-form-link" href="/socialmedia/new">New Post</a></button>
                 </div>
 
                 <!--FOR EACH POST-->

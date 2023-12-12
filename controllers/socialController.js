@@ -8,14 +8,15 @@ const {fileUpload} = require('../middleware/fileUpload');
 //         res.render('./social_media/index', {posts})}).catch(err=>next(err));
 // }
 
-exports.index = (req,res) => {
+exports.index = (req, res) => {
     let id = req.session.user;
-    Promise.all([User.findById(id), model.find()])
+    Promise.all([User.findById(id), model.find().populate('user')])
     .then(([user, posts]) => {
-        res.render('./social_media/index', { user, posts});
+        // The posts array now contains user information for each post
+        res.render('./social_media/index', { user, posts });
     })
     .catch(err => next(err));
-}
+};
 // Create
 exports.create = async (req, res, next) => {
     const { title, content } = req.body;
