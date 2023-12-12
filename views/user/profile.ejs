@@ -9,7 +9,16 @@
         <div class="container">
             <div class="profile-container">
                 <div class="personalinfo-container">
-                    <img class="profile-picture" src="/images/social-media/default-profile.jpg" alt="">
+                    <img class="profile-picture" src="<%= user.profilePictureUrl ? user.profilePictureUrl : '/images/social-media/default-profile.jpg' %>" alt="">
+                    <div class="picture-upload">
+                        
+                        <form action="/user/upload-profile-picture" method="post" enctype="multipart/form-data">
+                            <label for="profile-picture">What a new profile picture?</label>
+                            <input type="file" name="profilePicture"required>
+                        <button type="submit">Upload</button>
+                    </form>
+                    </div>
+                    
                     <div class="centered-text" style="padding-left: 100px;">
                         <h1 style="transform: translateY(50%) translateX(10%); align-items: center; font-size: 50px;"><%=user.firstName%> <%=user.lastName%></h1>
                     </div>

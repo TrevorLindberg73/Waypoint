@@ -128,3 +128,41 @@ img.comment, img.heart{
     height: 100px;
     border-radius: 50%;
 }
+.picture-upload form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 20px;
+}
+
+/* Style for file input */
+.picture-upload input[type="file"] {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    outline: none;
+    width: 80%;
+}
+
+/* Style for the button */
+.picture-upload button {
+    background-color: orangered;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.picture-upload button:hover {
+    background-color: darken(orangered, 10%);
+}

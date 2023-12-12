@@ -1,6 +1,8 @@
 const user = require('../models/user');
 const model = require('../models/user');
 const socials = require('../models/social');
+const multer = require('multer');
+const upload = multer({ dest: 'public/uploads/' });
 
 // GET /user/login: Render the login page
 exports.showlog = (req, res, next) => {
@@ -89,3 +91,16 @@ exports.logout = (req, res, next) => {
             res.redirect('/');  
     });
 }
+
+exports.uploadProfilePicture = (req, res, next) => {
+    let userId = req.session.user;
+    let profilePicturePath = '../uploads/' + req.file.filename; // Now includes the extension
+
+    model.findById(userId)
+    .then(user => {
+        user.profilePictureUrl = profilePicturePath;
+        return user.save();
+    })
+    .then(() => res.redirect('/user/profile'))
+    .catch(err => next(err));
+};
