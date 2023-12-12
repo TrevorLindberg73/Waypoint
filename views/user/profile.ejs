@@ -13,7 +13,7 @@
                     <div class="picture-upload">
                         
                         <form action="/user/upload-profile-picture" method="post" enctype="multipart/form-data">
-                            <label for="profile-picture">What a new profile picture?</label>
+                            <label for="profile-picture">Want a new profile picture?</label>
                             <input type="file" name="profilePicture"required>
                         <button type="submit">Upload</button>
                     </form>
@@ -36,7 +36,7 @@
                     <% posts.forEach((post) => {%>
                         <div class="post-container">
                             <div class="top-bar">
-                                <img src="/images/social-media/default-profile.jpg" alt="" class="profile-picture">
+                                <img src="<%= user.profilePictureUrl ? user.profilePictureUrl : '/images/social-media/default-profile.jpg' %>" class="profile-picture">
                                 <div class="post-info">
                                     <h4><%=post.author%></h4>
                                     <!-- <p><%=post.createdAt%></p> -->
