@@ -36,7 +36,7 @@
                     <% posts.forEach((post) => {%>
                         <div class="post-container">
                             <div class="top-bar">
-                                <img src="<%= user.profilePictureUrl ? user.profilePictureUrl : '/images/social-media/default-profile.jpg' %>" class="profile-picture">
+                                <img src="<%= user.profilePictureUrl ? user.profilePictureUrl : '/images/social-media/default-profile.jpg' %>" alt="" class="profile-picture">
                                 <div class="post-info">
                                     <h4><%=post.author%></h4>
                                     <!-- <p><%=post.createdAt%></p> -->
