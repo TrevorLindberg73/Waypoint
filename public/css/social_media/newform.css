@@ -33,7 +33,7 @@ form.new-form{
 }
 
 .content-container{
-    height:100vh !important;
+    margin: 80px auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const { DateTime } = require('luxon');
 
+// Comment Schema
 const commentSchema = new Schema({
     user: {
         type: Schema.Types.ObjectId,
@@ -15,6 +16,7 @@ const commentSchema = new Schema({
     // Add any other fields you want for comments
 }, { timestamps: true });
 
+// Schema for posts
 const socialSchema = new Schema({
     title: String,
     content: String,
