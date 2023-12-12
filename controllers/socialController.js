@@ -2,12 +2,6 @@ const model = require ('../models/social');
 const User = require('../models/user'); 
 const {fileUpload} = require('../middleware/fileUpload');
 
-// Index
-// exports.index = (req,res) => {
-//     model.find().then(posts=>{        
-//         res.render('./social_media/index', {posts})}).catch(err=>next(err));
-// }
-
 // Shows the main social page
 exports.index = (req,res) => {
     let id = req.session.user;
@@ -67,14 +61,6 @@ exports.showDetailed = (req, res, next) => {
         .catch(err => next(err));
 };
 
-// exports.edit = (req,res,next) =>{
-//     let id = req.params.id;
-
-//     model.findById(id)
-//     .then(post=>{return res.render('./social_media/editform', {post})})
-//     .catch(err=>next(err));
-// }
-
 // Takes user to the edit form
 exports.edit = (req, res, next) => {
     let id = req.params.id;
@@ -104,20 +90,6 @@ exports.edit = (req, res, next) => {
         .catch(err => next(err));
 };
 
-// exports.update = (req,res,next) =>{
-
-//     let post = req.body;
-//     let id = req.params.id;
-
-//     model.findByIdAndUpdate(id, post, {useFindAndModify: false, runValidators: true})
-//     .then(post=>{res.redirect('/social_media/'+id)})
-//     .catch(err=>{
-//         if(err.name === 'ValidationError') {
-//             err.status = 400;
-//         }
-//         next(err)
-//     });
-// }
 
 // Updates the post with users new info
 exports.update = (req,res,next) =>{
@@ -135,13 +107,6 @@ exports.update = (req,res,next) =>{
     });
 }
 
-// exports.delete = (req, res, next) =>{
-//     let id = req.params.id;
-    
-//     model.findByIdAndDelete(id, {useFindAndModify: false})
-//     .then(post=>{res.redirect('/social_media')})
-//     .catch(err=>next(err));
-// }
 
 // Deletes a post
 exports.delete = (req, res, next) =>{

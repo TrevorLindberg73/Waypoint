@@ -1,6 +1,6 @@
 <!-- post_detailed.ejs -->
 
-<% let pageTitle = "Social Media Post"; %>
+<% let pageTitle = "Social Media Comment"; %>
 <%- include('../partials/header.ejs', { pageTitle: pageTitle }) %>
 <div class="detailed-post-container">
     <link rel="stylesheet" type="text/css" href="/css/social_media/post_detailed.css">
@@ -36,10 +36,7 @@
                     </button>
                     
                 </form>
-                <form>
-                    <button class="edit-button" type="submit" formmethod="GET" formaction="/socialmedia/<%= post._id %>/edit"><i class="fas fa-edit"></i></button>
-                    <button class="delete-button" type="submit" formmethod="POST" formaction="/socialmedia/<%= post._id %>?_method=DELETE"><i class="fas fa-trash"></i></button>
-                </form>
+
                 <div class="existing-comments">
                     <% post.comments.forEach(comment => { %>
                         <p><strong><%= comment.firstName %> <%= comment.lastName %>:</strong> <%= comment.text %></p>
