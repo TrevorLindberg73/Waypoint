@@ -25,6 +25,7 @@ exports.profile = (req, res, next)=>{
     .catch(err=>next(err));
 };
 
+// Checks the info given by user and logs in the user if correct
 exports.loggedIn = (req, res, next) => {
     let email = req.body.email;
     let password = req.body.password;
@@ -53,6 +54,7 @@ exports.loggedIn = (req, res, next) => {
     .catch(err => next(err));
 }
 
+// Creates a new user
 exports.create = (req, res, next) => {
     // let errors = validationResult(req);
     // if (!errors.isEmpty()) {
@@ -80,6 +82,7 @@ exports.create = (req, res, next) => {
     
 };
 
+// Removes session and logs out user
 exports.logout = (req, res, next) => {
     req.session.destroy(err=>{
         if(err) 

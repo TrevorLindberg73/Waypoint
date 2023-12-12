@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const bcrypt = require('bcrypt');
 
+// Schema for users
 const userSchema = new Schema({
     firstName: {type: String},
     lastName: {type: String},
@@ -10,6 +11,7 @@ const userSchema = new Schema({
     profilePictureUrl: { type: String }
 });
 
+// Password hashing
 userSchema.pre('save', function(next) {
     let user = this;
     if (!user.isModified('password')){
@@ -24,6 +26,7 @@ userSchema.pre('save', function(next) {
     }
 });
 
+// Password validation
 userSchema.methods.comparePassword = function(loginPassword) {
     return bcrypt.compare(loginPassword, this.password);
 }
